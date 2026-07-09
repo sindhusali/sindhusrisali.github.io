@@ -3,404 +3,924 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Sindhu Sri Sali — AI & Full Stack Engineer</title>
- 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<title>Sindhu Sri Sali — AI Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #0a0a0f; --bg2: #111118; --bg3: #1a1a24;
-    --border: #2a2a38; --accent: #7c6af7; --accent2: #a78bfa;
-    --accent3: #38bdf8; --text: #e8e8f0; --muted: #8888a8;
-    --green: #34d399; --mono: 'JetBrains Mono', monospace; --sans: 'Inter', sans-serif;
-  }
-  html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 2.5rem; height: 60px;
-    background: rgba(10,10,15,0.85); backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-logo { font-family: var(--mono); font-size: 13px; color: var(--accent2); letter-spacing: 0.05em; }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--text); }
-
-  #hero {
-    min-height: 100vh; display: flex; align-items: center;
-    padding: 100px 2.5rem 60px; max-width: 1100px; margin: 0 auto;
-  }
-
-  .hero-inner { max-width: 680px; }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 5px 14px; background: rgba(124,106,247,0.1);
-    border: 1px solid rgba(124,106,247,0.3); border-radius: 100px;
-    font-family: var(--mono); font-size: 12px; color: var(--accent2); margin-bottom: 2rem;
-  }
-  .hero-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-  h1 { font-size: clamp(2.4rem,6vw,4rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1.2rem; }
-  .gradient-text {
-    background: linear-gradient(135deg, var(--accent2) 0%, var(--accent3) 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-  #cursor { color: var(--accent2); animation: blink 1s infinite; -webkit-text-fill-color: var(--accent2); }
-  #typed-role {
-    font-size: 0.5em;
-    font-weight: 600;
-    display: inline-block;
-    margin-top: 8px;
+:root {
+  --ink: #0d0d12;
+  --paper: #f5f4f0;
+  --paper2: #eeecea;
+  --signal: #00e5a0;
+  --signal2: #7b5ea7;
+  --signal3: #ff6b35;
+  --muted: #6b6b7a;
+  --border: #d8d6d0;
+  --mono: 'Space Mono', monospace;
+  --sans: 'Space Grotesk', sans-serif;
 }
 
-  .hero-desc { font-size: 1.05rem; color: var(--muted); max-width: 540px; margin-bottom: 2.5rem; line-height: 1.8; }
-  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 10px 22px; border-radius: 8px; font-size: 13px; font-weight: 600;
-    text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
-  }
-  .btn-primary { background: var(--accent); color: #fff; }
-  .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
-  .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
-  .btn-outline:hover { border-color: var(--accent); color: var(--accent2); transform: translateY(-1px); }
+html { scroll-behavior: smooth; }
 
-  .stats { display: flex; gap: 2.5rem; flex-wrap: wrap; padding-top: 2rem; border-top: 1px solid var(--border); }
-  .stat-val { font-family: var(--mono); font-size: 1.6rem; font-weight: 700; color: var(--accent2); }
-  .stat-label { font-size: 11px; color: var(--muted); margin-top: 2px; letter-spacing: 0.04em; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
 
-  section { padding: 80px 2.5rem; max-width: 1100px; margin: 0 auto; }
-  .section-label { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.6rem; }
-  h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 2.5rem; }
-  .divider { border: none; border-top: 1px solid var(--border); }
+/* ── CURSOR ── */
+.cursor {
+  width: 10px; height: 10px;
+  background: var(--signal);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease, width 0.2s, height 0.2s;
+  mix-blend-mode: multiply;
+}
+.cursor.expanded { width: 40px; height: 40px; transform: translate(-15px, -15px); opacity: 0.5; }
 
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-  .skill-card { background: var(--bg2); padding: 1.5rem; }
-  .skill-card-title { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tag { padding: 3px 10px; background: var(--bg3); border: 1px solid var(--border); border-radius: 5px; font-size: 12px; color: var(--muted); font-family: var(--mono); }
-  .tag.hot { border-color: rgba(124,106,247,0.4); color: var(--accent2); }
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3rem; height: 64px;
+  background: rgba(245,244,240,0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: var(--mono);
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--signal2); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  color: var(--muted); text-decoration: none;
+  font-size: 13px; font-weight: 500;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  height: 1px; background: var(--signal);
+  transform: scaleX(0); transition: transform 0.2s;
+  transform-origin: left;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-cta {
+  background: var(--ink); color: var(--paper) !important;
+  padding: 8px 20px; border-radius: 4px;
+  font-size: 12px !important; font-weight: 600 !important;
+  letter-spacing: 0.05em;
+}
+.nav-cta:hover { background: var(--signal2) !important; color: #fff !important; }
+.nav-cta::after { display: none !important; }
 
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(320px,1fr)); gap: 1.5rem; }
-  .project-card {
-    background: var(--bg2); border: 1px solid var(--border); border-radius: 12px;
-    padding: 1.8rem; display: flex; flex-direction: column;
-    transition: border-color 0.2s, transform 0.2s; position: relative; overflow: hidden;
-  }
-  .project-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--accent),var(--accent3)); opacity:0; transition:opacity 0.2s; }
-  .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-  .project-card:hover::before { opacity: 1; }
-  .project-type { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.8rem; }
-  .project-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.8rem; line-height: 1.3; }
-  .project-desc { font-size: 13px; color: var(--muted); line-height: 1.7; flex: 1; margin-bottom: 1.2rem; }
-  .project-metrics { display: flex; gap: 1rem; flex-wrap: wrap; padding: 0.8rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 1.2rem; }
-  .metric { text-align: center; }
-  .metric-val { font-family: var(--mono); font-size: 0.95rem; font-weight: 700; color: var(--green); }
-  .metric-label { font-size: 10px; color: var(--muted); }
-  .project-stack { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 1.2rem; }
-  .project-footer { display: flex; gap: 0.8rem; margin-top: auto; }
-  .link-btn { display: inline-flex; align-items: center; gap: 5px; padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 500; text-decoration: none; background: var(--bg3); border: 1px solid var(--border); color: var(--muted); transition: all 0.2s; }
-  .link-btn:hover { border-color: var(--accent); color: var(--accent2); }
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 64px;
+}
+.hero-left {
+  display: flex; flex-direction: column;
+  justify-content: center;
+  padding: 5rem 3rem 5rem 3.5rem;
+  border-right: 1px solid var(--border);
+}
+.hero-right {
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  padding: 5rem 3rem;
+  background: var(--ink);
+  position: relative; overflow: hidden;
+}
 
-  .timeline { position: relative; padding-left: 1.5rem; }
-  .timeline::before { content:''; position:absolute; left:0; top:8px; bottom:8px; width:1px; background:var(--border); }
-  .timeline-item { position: relative; margin-bottom: 2.5rem; }
-  .timeline-item::before { content:''; position:absolute; left:-1.5rem; top:8px; width:7px; height:7px; border-radius:50%; background:var(--accent); border:2px solid var(--bg); transform:translateX(-3px); }
-  .timeline-date { font-family: var(--mono); font-size: 11px; color: var(--accent); margin-bottom: 0.4rem; }
-  .timeline-title { font-weight: 700; font-size: 1rem; margin-bottom: 2px; }
-  .timeline-company { font-size: 13px; color: var(--muted); margin-bottom: 0.8rem; }
-  .timeline-bullets { list-style: none; padding: 0; }
-  .timeline-bullets li { font-size: 13px; color: var(--muted); line-height: 1.7; padding-left: 1.2em; position: relative; margin-bottom: 4px; }
-  .timeline-bullets li::before { content:'→'; position:absolute; left:0; color:var(--accent); font-size:11px; }
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px; font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--signal);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 10px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block; width: 30px; height: 1px;
+  background: var(--signal);
+}
 
-  .certs-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 1rem; }
-  .cert-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem 1.4rem; transition: border-color 0.2s; }
-  .cert-card:hover { border-color: var(--accent); }
-  .cert-issuer { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
-  .cert-name { font-size: 13px; font-weight: 600; color: var(--text); }
+.hero-name {
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+}
+.hero-name .line2 { color: var(--signal2); }
 
-  .contact-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 3rem; text-align: center; position: relative; overflow: hidden; }
-  .contact-box::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 0%,rgba(124,106,247,0.08) 0%,transparent 70%); pointer-events:none; }
-  .contact-box h2 { margin-bottom: 0.8rem; }
-  .contact-box p { color: var(--muted); margin-bottom: 2rem; }
-  .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.role-cycle {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 2rem;
+  min-height: 20px;
+}
+.role-cycle span { color: var(--signal3); }
 
-  footer { text-align: center; padding: 2rem; font-family: var(--mono); font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); }
+.hero-desc {
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 460px;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
 
-  .orb { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; opacity: 0.12; }
-  .orb1 { width: 500px; height: 500px; background: var(--accent); top: -150px; right: -100px; }
-  .orb2 { width: 400px; height: 400px; background: var(--accent3); bottom: 20%; left: -150px; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 24px; border-radius: 4px;
+  font-size: 13px; font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: all 0.2s;
+  cursor: pointer; border: none;
+  font-family: var(--sans);
+}
+.btn-primary { background: var(--ink); color: var(--paper); }
+.btn-primary:hover { background: var(--signal2); transform: translateY(-2px); }
+.btn-outline { background: transparent; border: 1.5px solid var(--border); color: var(--ink); }
+.btn-outline:hover { border-color: var(--ink); transform: translateY(-2px); }
 
-  @media(max-width:640px) {
-    nav { padding: 0 1.2rem; } .nav-links { gap: 1.2rem; }
-    section { padding: 60px 1.2rem; } #hero { padding: 100px 1.2rem 50px; }
-    .contact-box { padding: 2rem 1.2rem; }
-  }
+/* HERO RIGHT — terminal */
+.terminal {
+  background: #0d1117;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 480px;
+  font-family: var(--mono);
+  overflow: hidden;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+}
+.terminal-bar {
+  background: #1c2128;
+  padding: 12px 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.r { background: #ff5f57; }
+.dot.y { background: #ffbd2e; }
+.dot.g { background: #28c840; }
+.terminal-title { font-size: 11px; color: #6e7681; margin-left: auto; }
+.terminal-body { padding: 20px; font-size: 12px; line-height: 1.8; }
+.t-comment { color: #6e7681; }
+.t-key { color: #7ee787; }
+.t-val { color: #a5d6ff; }
+.t-str { color: #ff9f59; }
+.t-num { color: #f2cc60; }
+.t-cursor { display: inline-block; width: 8px; height: 14px; background: var(--signal); animation: blink 1s infinite; vertical-align: middle; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* floating pills */
+.hero-pills {
+  position: absolute;
+  top: 20%; right: -20px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.pill {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: rgba(255,255,255,0.5);
+  white-space: nowrap;
+  animation: float 3s ease-in-out infinite;
+}
+.pill:nth-child(2) { animation-delay: 0.5s; }
+.pill:nth-child(3) { animation-delay: 1s; }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+/* hero stats bar */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stat-item {
+  padding: 1.8rem 2rem;
+  border-right: 1px solid var(--border);
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: var(--mono);
+  font-size: 1.8rem; font-weight: 700;
+  color: var(--ink); line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-num em { color: var(--signal2); font-style: normal; }
+.stat-desc { font-size: 11px; color: var(--muted); letter-spacing: 0.03em; }
+
+/* ── SECTIONS ── */
+.section { padding: 6rem 3.5rem; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-tag {
+  font-family: var(--mono);
+  font-size: 10px; color: var(--muted);
+  letter-spacing: 0.2em; text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-tag::after {
+  content: '';
+  flex: 1; max-width: 40px;
+  height: 1px; background: var(--border);
+}
+.section-title {
+  font-size: 2.2rem; font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 3rem;
+}
+
+/* ── SKILLS ── */
+#skills { background: var(--ink); color: var(--paper); }
+#skills .section-tag { color: rgba(255,255,255,0.3); }
+#skills .section-tag::after { background: rgba(255,255,255,0.1); }
+#skills .section-title { color: var(--paper); }
+
+.skills-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.skill-cell {
+  background: #111118;
+  padding: 2rem;
+  transition: background 0.2s;
+}
+.skill-cell:hover { background: #16161e; }
+.skill-cell-label {
+  font-family: var(--mono);
+  font-size: 9px; letter-spacing: 0.2em;
+  color: var(--signal);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.skill-tag {
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-family: var(--mono);
+}
+.skill-tag.primary { background: rgba(0,229,160,0.1); color: var(--signal); border: 1px solid rgba(0,229,160,0.2); }
+.skill-tag.secondary { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.08); }
+
+/* ── PROJECTS ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.project-card {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  background: var(--paper);
+  display: flex; flex-direction: column;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  border-color: var(--signal2);
+}
+.project-card-top {
+  padding: 1.8rem;
+  border-bottom: 1px solid var(--border);
+  flex: 1;
+}
+.project-type {
+  font-family: var(--mono);
+  font-size: 9px; letter-spacing: 0.2em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+.project-name {
+  font-size: 1.05rem; font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+}
+.project-desc {
+  font-size: 13px; color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+.project-metrics {
+  display: flex; gap: 1.2rem;
+  flex-wrap: wrap;
+}
+.metric { }
+.metric-val {
+  font-family: var(--mono);
+  font-size: 1rem; font-weight: 700;
+  color: var(--signal2);
+}
+.metric-label { font-size: 10px; color: var(--muted); }
+.project-card-bottom {
+  padding: 1rem 1.8rem;
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--paper2);
+}
+.project-stack-mini {
+  font-family: var(--mono);
+  font-size: 10px; color: var(--muted);
+}
+.project-links { display: flex; gap: 0.8rem; }
+.project-link {
+  font-size: 11px; font-weight: 600;
+  text-decoration: none;
+  color: var(--ink);
+  display: flex; align-items: center; gap: 4px;
+  padding: 4px 10px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+  transition: all 0.15s;
+}
+.project-link:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.project-link.live { background: var(--signal); color: var(--ink); border-color: var(--signal); }
+.project-link.live:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* featured project */
+.project-card.featured {
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.project-card.featured .project-card-top { border-bottom: none; border-right: 1px solid var(--border); }
+.project-card.featured .project-card-bottom { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.8rem; }
+.featured-badge {
+  display: inline-block;
+  background: var(--signal);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 9px; letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+
+/* ── EXPERIENCE ── */
+#experience { background: var(--paper2); }
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute; left: 0; top: 10px; bottom: 10px;
+  width: 1px; background: var(--border);
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  padding-left: 1.5rem;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute; left: -2rem;
+  top: 8px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--signal2);
+  border: 2px solid var(--paper2);
+}
+.tl-date {
+  font-family: var(--mono);
+  font-size: 11px; color: var(--muted);
+  margin-bottom: 4px;
+}
+.tl-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 2px; }
+.tl-org { font-size: 13px; color: var(--signal2); font-weight: 600; margin-bottom: 1rem; }
+.tl-bullets { list-style: none; }
+.tl-bullets li {
+  font-size: 13px; color: var(--muted);
+  padding-left: 1.2em; position: relative;
+  margin-bottom: 5px; line-height: 1.7;
+}
+.tl-bullets li::before {
+  content: '›';
+  position: absolute; left: 0;
+  color: var(--signal); font-weight: 700;
+}
+
+/* ── CERTS ── */
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.cert-card {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.4rem;
+  display: flex; gap: 1rem; align-items: flex-start;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.cert-card:hover { border-color: var(--signal2); transform: translateY(-2px); }
+.cert-icon {
+  width: 36px; height: 36px;
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0;
+}
+.cert-icon.purple { background: rgba(123,94,167,0.1); }
+.cert-icon.blue { background: rgba(0,120,212,0.1); }
+.cert-icon.green { background: rgba(0,229,160,0.1); }
+.cert-issuer { font-size: 10px; color: var(--muted); font-family: var(--mono); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2px; }
+.cert-name { font-size: 13px; font-weight: 600; }
+
+/* ── CONTACT ── */
+#contact {
+  background: var(--ink);
+  color: var(--paper);
+}
+.contact-inner {
+  max-width: 700px; margin: 0 auto;
+  text-align: center;
+}
+#contact .section-tag { color: rgba(255,255,255,0.3); justify-content: center; }
+#contact .section-tag::after { display: none; }
+#contact .section-title { color: var(--paper); text-align: center; }
+.contact-sub { color: rgba(255,255,255,0.4); margin-bottom: 3rem; font-size: 1rem; }
+.contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.contact-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 13px; font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-family: var(--sans);
+}
+.contact-link.primary { background: var(--signal); color: var(--ink); }
+.contact-link.primary:hover { background: #00ffb3; transform: translateY(-2px); }
+.contact-link.ghost { border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); }
+.contact-link.ghost:hover { border-color: rgba(255,255,255,0.4); color: #fff; transform: translateY(-2px); }
+
+/* ── FOOTER ── */
+footer {
+  background: #080810;
+  color: rgba(255,255,255,0.2);
+  text-align: center;
+  padding: 1.5rem;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+
+/* SCROLL REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+  #hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  .skills-board { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+  .project-card.featured .project-card-top { border-right: none; border-bottom: 1px solid var(--border); }
+  .certs-grid { grid-template-columns: repeat(2, 1fr); }
+  nav { padding: 0 1.5rem; }
+  .nav-links { gap: 1.5rem; }
+  .section { padding: 4rem 1.5rem; }
+  .hero-left { padding: 3rem 1.5rem; }
+}
 </style>
 </head>
 <body>
 
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
+<div class="cursor" id="cursor"></div>
 
+<!-- NAV -->
 <nav>
-  <div class="nav-logo">sindhu.dev</div>
+  <a href="#" class="nav-logo">S<span>.</span>SINDHU</a>
   <ul class="nav-links">
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
   </ul>
 </nav>
 
-<div id="hero">
-  <div class="hero-inner">
-    <div class="hero-badge">
-      <span class="dot"></span>
-      Available for full-time &amp; remote roles
-    </div>
-    <h1>Sindhu Sri Sali<br>
-      <span class="gradient-text" id="typed-role"></span><span id="cursor">|</span>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">AI Engineer — Open to Remote Roles</div>
+    <h1 class="hero-name">
+      Sindhu<br>
+      <span class="line2">Sri Sali</span>
     </h1>
+    <div class="role-cycle" id="roleText">
+      <span id="typed"></span><span class="t-cursor"></span>
+    </div>
     <p class="hero-desc">
-      I build production-grade AI pipelines, LLM-powered agents, and full-stack applications.
-      From training deep learning models to deploying agentic AI systems — I ship things that run reliably in the real world.
+      I build AI systems that run in production — from fine-tuning language models and designing RAG pipelines to shipping full-stack applications with real users. 4 deployed projects. 3 live demos. Zero fluff.
     </p>
     <div class="hero-actions">
-      <a href="#projects" class="btn btn-primary">View Projects</a>
-      <a href="mailto:sindhusrisali@gmail.com" class="btn btn-outline">✉ Get in Touch</a>
-      <a href="https://github.com/sindhusali" target="_blank" class="btn btn-outline">GitHub ↗</a>
+      <a href="#projects" class="btn btn-primary">View Projects →</a>
+      <a href="https://sindhusali.github.io/sindhusrisali.github.io/" target="_blank" class="btn btn-outline">Full Portfolio ↗</a>
     </div>
-    <div class="stats">
-      <div><div class="stat-val">97.3%</div><div class="stat-label">ROC-AUC — SmartBank AI</div></div>
-      <div><div class="stat-val">r=0.924</div><div class="stat-label">Pearson vs. experts — PackageAI</div></div>
-      <div><div class="stat-val">&lt;200ms</div><div class="stat-label">Inference time — PackageAI</div></div>
-      <div><div class="stat-val">8.59</div><div class="stat-label">CGPA — B.Tech AI &amp; ML</div></div>
+  </div>
+  <div class="hero-right">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+        <span class="terminal-title">sindhu@ai-engineer ~ profile.json</span>
+      </div>
+      <div class="terminal-body">
+        <div class="t-comment">// Sindhu Sri Sali — AI Engineer</div>
+        <br>
+        <span class="t-key">"name"</span>: <span class="t-str">"Sindhu Sri Sali"</span>,<br>
+        <span class="t-key">"role"</span>: <span class="t-str">"Agentic AI Engineer"</span>,<br>
+        <span class="t-key">"location"</span>: <span class="t-str">"India 🇮🇳 · Remote Ready"</span>,<br>
+        <span class="t-key">"education"</span>: <span class="t-str">"B.Tech CS (AI &amp; ML) · GPA 8.59"</span>,<br>
+        <br>
+        <span class="t-key">"models_fine_tuned"</span>: [<br>
+        &nbsp;&nbsp;<span class="t-str">"RoBERTa + LoRA"</span>, <span class="t-str">"BERT"</span><br>
+        ],<br>
+        <span class="t-key">"best_metric"</span>: <span class="t-num">97.3</span><span class="t-str">% ROC-AUC</span>,<br>
+        <span class="t-key">"deployed_projects"</span>: <span class="t-num">4</span>,<br>
+        <span class="t-key">"live_demos"</span>: <span class="t-num">3</span>,<br>
+        <br>
+        <span class="t-key">"stack"</span>: [<br>
+        &nbsp;&nbsp;<span class="t-str">"LangChain"</span>, <span class="t-str">"RAG"</span>, <span class="t-str">"ChromaDB"</span>,<br>
+        &nbsp;&nbsp;<span class="t-str">"FastAPI"</span>, <span class="t-str">"React"</span>, <span class="t-str">"Docker"</span><br>
+        ],<br>
+        <span class="t-key">"status"</span>: <span class="t-str">"actively_looking"</span> <span class="t-cursor"></span>
+      </div>
     </div>
+    <div class="hero-pills">
+      <div class="pill">✦ LangChain · RAG · ChromaDB</div>
+      <div class="pill">✦ LoRA Fine-Tuning · NLI Eval</div>
+      <div class="pill">✦ FastAPI · Docker · CI/CD</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar reveal">
+  <div class="stat-item">
+    <div class="stat-num">97<em>.3%</em></div>
+    <div class="stat-desc">ROC-AUC · Fraud Detection</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">r<em>=.924</em></div>
+    <div class="stat-desc">Pearson · Computer Vision</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">89<em>.0%</em></div>
+    <div class="stat-desc">Accuracy · LoRA RoBERTa</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">284<em>K</em></div>
+    <div class="stat-desc">Transactions Processed</div>
   </div>
 </div>
 
-<hr class="divider" style="max-width:1100px;margin:0 auto;"/>
-
-<section id="skills">
-  <div class="section-label">02 / Expertise</div>
-  <h2>Technical Skills</h2>
-  <div class="skills-grid">
-    <div class="skill-card">
-      <div class="skill-card-title">AI / ML &amp; GenAI</div>
-      <div class="tags">
-        <span class="tag hot">LangChain</span><span class="tag hot">LlamaIndex</span>
-        <span class="tag hot">RAG</span><span class="tag hot">Prompt Engineering</span>
-        <span class="tag">TensorFlow</span><span class="tag">PyTorch</span>
-        <span class="tag">XGBoost</span><span class="tag">BERT</span><span class="tag">MobileNetV2</span>
-        <span class="tag hot">Groq LLaMA 3.1</span><span class="tag hot">Claude API</span><span class="tag">OpenAI API</span>
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="section-inner">
+    <div class="section-tag reveal">Expertise</div>
+    <h2 class="section-title reveal">Technical Skills</h2>
+    <div class="skills-board reveal">
+      <div class="skill-cell">
+        <div class="skill-cell-label">Agentic AI &amp; LLM</div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">LangChain</span>
+          <span class="skill-tag primary">LlamaIndex</span>
+          <span class="skill-tag primary">RAG</span>
+          <span class="skill-tag primary">LoRA Fine-Tuning</span>
+          <span class="skill-tag primary">ChromaDB</span>
+          <span class="skill-tag secondary">FAISS</span>
+          <span class="skill-tag secondary">NLI Evaluation</span>
+          <span class="skill-tag secondary">Prompt Engineering</span>
+        </div>
       </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-card-title">Languages &amp; Backend</div>
-      <div class="tags">
-        <span class="tag hot">Python</span><span class="tag hot">FastAPI</span>
-        <span class="tag">Node.js</span><span class="tag">Express.js</span>
-        <span class="tag">REST APIs</span><span class="tag">Async Python</span>
-        <span class="tag">SQL</span><span class="tag">Java</span><span class="tag">C++</span><span class="tag">Pydantic</span>
+      <div class="skill-cell">
+        <div class="skill-cell-label">Machine Learning</div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">PyTorch</span>
+          <span class="skill-tag primary">TensorFlow</span>
+          <span class="skill-tag primary">XGBoost</span>
+          <span class="skill-tag secondary">RoBERTa</span>
+          <span class="skill-tag secondary">BERT</span>
+          <span class="skill-tag secondary">MobileNetV2</span>
+          <span class="skill-tag secondary">MLOps</span>
+          <span class="skill-tag secondary">Model Eval</span>
+        </div>
       </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-card-title">Frontend</div>
-      <div class="tags">
-        <span class="tag hot">React.js</span><span class="tag">TypeScript</span>
-        <span class="tag">JavaScript</span><span class="tag">Tailwind CSS</span>
-        <span class="tag">HTML5</span><span class="tag">CSS3</span>
+      <div class="skill-cell">
+        <div class="skill-cell-label">APIs &amp; LLM Providers</div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">OpenAI API</span>
+          <span class="skill-tag primary">Claude API</span>
+          <span class="skill-tag primary">Groq LLaMA 3.1</span>
+          <span class="skill-tag secondary">FastAPI</span>
+          <span class="skill-tag secondary">REST APIs</span>
+          <span class="skill-tag secondary">Async Python</span>
+          <span class="skill-tag secondary">JWT / OAuth2</span>
+        </div>
       </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-card-title">Databases</div>
-      <div class="tags">
-        <span class="tag hot">PostgreSQL</span><span class="tag">MongoDB</span>
-        <span class="tag">MySQL</span><span class="tag hot">FAISS</span>
-        <span class="tag">ChromaDB</span><span class="tag">Neon</span>
+      <div class="skill-cell">
+        <div class="skill-cell-label">Languages</div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">Python</span>
+          <span class="skill-tag primary">JavaScript</span>
+          <span class="skill-tag primary">TypeScript</span>
+          <span class="skill-tag secondary">SQL</span>
+          <span class="skill-tag secondary">Java</span>
+          <span class="skill-tag secondary">C++</span>
+        </div>
       </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-card-title">DevOps &amp; Tools</div>
-      <div class="tags">
-        <span class="tag hot">Docker</span><span class="tag">Git / GitHub</span>
-        <span class="tag">CI/CD</span><span class="tag">Linux</span>
-        <span class="tag">Vercel</span><span class="tag">Render</span>
-        <span class="tag">Streamlit</span><span class="tag">GitHub Copilot</span>
+      <div class="skill-cell">
+        <div class="skill-cell-label">Full Stack</div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">React.js</span>
+          <span class="skill-tag primary">Node.js</span>
+          <span class="skill-tag secondary">Express.js</span>
+          <span class="skill-tag secondary">PostgreSQL</span>
+          <span class="skill-tag secondary">MongoDB</span>
+          <span class="skill-tag secondary">Tailwind CSS</span>
+          <span class="skill-tag secondary">Streamlit</span>
+        </div>
       </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-card-title">Core Concepts</div>
-      <div class="tags">
-        <span class="tag hot">Agentic AI</span><span class="tag hot">Multi-Agent Systems</span>
-        <span class="tag">MLOps</span><span class="tag">OOP</span>
-        <span class="tag">DSA</span><span class="tag">DBMS</span><span class="tag">JWT / OAuth</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider" style="max-width:1100px;margin:0 auto;"/>
-
-<section id="projects">
-  <div class="section-label">03 / Work</div>
-  <h2>Projects</h2>
-  <div class="projects-grid">
-    <div class="project-card">
-      <div class="project-type">ML · GenAI · Full Stack</div>
-      <div class="project-title">SmartBank AI — Intelligent Banking &amp; Fraud Detection</div>
-      <div class="project-desc">Full-stack banking platform with real-time XGBoost fraud detection trained on 284,807 transactions. Integrated Groq LLaMA 3.1 to generate plain-English explanations for fraud predictions. Secure JWT auth, multi-account management, analytics dashboard, and PDF statement export.</div>
-      <div class="project-metrics">
-        <div class="metric"><div class="metric-val">97.3%</div><div class="metric-label">ROC-AUC</div></div>
-        <div class="metric"><div class="metric-val">284K</div><div class="metric-label">Transactions</div></div>
-        <div class="metric"><div class="metric-val">LLaMA 3.1</div><div class="metric-label">AI Explanations</div></div>
-      </div>
-      <div class="project-stack">
-        <span class="tag hot">XGBoost</span><span class="tag hot">Groq LLaMA 3.1</span>
-        <span class="tag">React.js</span><span class="tag">Node.js</span>
-        <span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">JWT</span>
-      </div>
-      <div class="project-footer">
-        <a href="https://github.com/sindhusali/smartbank-ai" target="_blank" class="link-btn">GitHub ↗</a>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-type">AI Pipeline · Computer Vision · NLP</div>
-      <div class="project-title">Brand Attention Intelligence — PackageAI</div>
-      <div class="project-desc">End-to-end async AI pipeline ingesting 5,058 packaging images. Extracts multi-modal features using MobileNetV2 (vision) and BERT (text), aggregated via Dempster-Shafer Fuzzy logic into a single Consensus Score. Deployed on Streamlit Community Cloud.</div>
-      <div class="project-metrics">
-        <div class="metric"><div class="metric-val">r=0.924</div><div class="metric-label">Pearson vs experts</div></div>
-        <div class="metric"><div class="metric-val">&lt;200ms</div><div class="metric-label">Inference</div></div>
-        <div class="metric"><div class="metric-val">0.00238</div><div class="metric-label">Validation MSE</div></div>
-      </div>
-      <div class="project-stack">
-        <span class="tag hot">TensorFlow</span><span class="tag">BERT</span>
-        <span class="tag">MobileNetV2</span><span class="tag hot">FastAPI</span>
-        <span class="tag">Streamlit</span><span class="tag">Fuzzy Logic</span>
-      </div>
-      <div class="project-footer">
-        <a href="https://github.com/sindhusali/Brand-Attention-Intelligence" target="_blank" class="link-btn">GitHub ↗</a>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-type">Full Stack · AI Analytics</div>
-      <div class="project-title">AI-Powered Finance Dashboard</div>
-      <div class="project-desc">Full-stack finance dashboard with secure JWT authentication, dynamic data visualisation, transaction management, and scalable REST API integrations. AI-powered analytics for automated business insights with MongoDB aggregation pipelines.</div>
-      <div class="project-stack">
-        <span class="tag hot">React.js</span><span class="tag">Node.js</span>
-        <span class="tag">MongoDB</span><span class="tag">REST APIs</span>
-        <span class="tag">Tailwind CSS</span><span class="tag">JWT</span>
-      </div>
-      <div class="project-footer">
-        <a href="https://github.com/sindhusali/AI-Powered-Finance-Dashboard" target="_blank" class="link-btn">GitHub ↗</a>
+      <div class="skill-cell">
+        <div class="skill-cell-label">DevOps &amp; Cloud</div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">Docker</span>
+          <span class="skill-tag primary">Git / GitHub</span>
+          <span class="skill-tag secondary">CI/CD</span>
+          <span class="skill-tag secondary">Vercel</span>
+          <span class="skill-tag secondary">Render</span>
+          <span class="skill-tag secondary">Linux</span>
+          <span class="skill-tag secondary">Observability</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="divider" style="max-width:1100px;margin:0 auto;"/>
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="section-inner">
+    <div class="section-tag reveal">Work</div>
+    <h2 class="section-title reveal">Projects</h2>
+    <div class="projects-grid">
 
-<section id="experience">
-  <div class="section-label">04 / Experience</div>
-  <h2>Internships</h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-date">Jan 2026 — Mar 2026</div>
-      <div class="timeline-title">AI Deployment &amp; Automation Intern</div>
-      <div class="timeline-company">AICTE Virtual Internship · Remote</div>
-      <ul class="timeline-bullets">
-        <li>Built and deployed production FastAPI services with Docker; configured CI/CD pipelines with monitoring and observability hooks.</li>
-        <li>Implemented structured logging, retry logic, and graceful error handling for external API integrations — distinguishing rate limits, auth errors, and server failures.</li>
-        <li>Developed RAG applications and autonomous AI agents using LangChain and LlamaIndex for multi-step reasoning and web-scale document retrieval.</li>
-      </ul>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-date">Jan 2025 — Mar 2025</div>
-      <div class="timeline-title">AI/ML Intern</div>
-      <div class="timeline-company">AICTE Virtual Internship · Remote</div>
-      <ul class="timeline-bullets">
-        <li>Performed EDA and preprocessing on structured datasets using Python (Pandas, NumPy); generated visualisations to surface actionable trends.</li>
-        <li>Applied modular, well-documented coding practices for reproducible and maintainable ML pipelines.</li>
-      </ul>
+      <!-- Featured -->
+      <div class="project-card featured reveal">
+        <div class="project-card-top">
+          <div class="featured-badge">✦ Featured</div>
+          <div class="project-type">Legal AI · NLP · Fine-Tuning · RAG</div>
+          <div class="project-name">ClauseGuard — Contract Intelligence Platform</div>
+          <div class="project-desc">
+            Multi-component contract intelligence platform: LoRA fine-tuned RoBERTa classifier for clause risk categorization, citation-grounded RAG agent, and an automated NLI evaluation harness. Built on CUAD — 500+ expert-annotated commercial contracts.
+          </div>
+          <div class="project-metrics">
+            <div class="metric"><div class="metric-val">89.0%</div><div class="metric-label">Accuracy</div></div>
+            <div class="metric"><div class="metric-val">88.2%</div><div class="metric-label">Macro-F1</div></div>
+            <div class="metric"><div class="metric-val">+40%</div><div class="metric-label">Refusal Rate</div></div>
+            <div class="metric"><div class="metric-val">6,507</div><div class="metric-label">Training Examples</div></div>
+          </div>
+        </div>
+        <div class="project-card-bottom">
+          <div class="project-stack-mini">PyTorch · RoBERTa · LoRA · LangChain · ChromaDB · NLI</div>
+          <div class="project-links">
+            <a href="https://clauseguard-v2cnt6a5kygr7xpjc9quye.streamlit.app/" target="_blank" class="project-link live">⚡ Live Demo</a>
+            <a href="https://github.com/sindhusali/clauseguard" target="_blank" class="project-link">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SmartBank -->
+      <div class="project-card reveal">
+        <div class="project-card-top">
+          <div class="project-type">FinTech · ML · GenAI · Full Stack</div>
+          <div class="project-name">SmartBank AI — Fraud Detection Platform</div>
+          <div class="project-desc">Real-time fraud detection with XGBoost trained on 284,807 transactions. Groq LLaMA 3.1 generates plain-English explanations for every flagged transaction.</div>
+          <div class="project-metrics">
+            <div class="metric"><div class="metric-val">97.3%</div><div class="metric-label">ROC-AUC</div></div>
+            <div class="metric"><div class="metric-val">284K</div><div class="metric-label">Transactions</div></div>
+          </div>
+        </div>
+        <div class="project-card-bottom">
+          <div class="project-stack-mini">XGBoost · FastAPI · React · PostgreSQL · LLaMA 3.1</div>
+          <div class="project-links">
+            <a href="https://smartbank-ai-snowy.vercel.app/login" target="_blank" class="project-link live">⚡ Live</a>
+            <a href="https://github.com/sindhusali/smartbank-ai" target="_blank" class="project-link">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PackageAI -->
+      <div class="project-card reveal">
+        <div class="project-card-top">
+          <div class="project-type">Computer Vision · NLP · Multi-Modal</div>
+          <div class="project-name">Brand Attention Intelligence — PackageAI</div>
+          <div class="project-desc">Async AI pipeline fusing MobileNetV2 vision and BERT text features via Dempster-Shafer Fuzzy logic into a unified brand attention Consensus Score.</div>
+          <div class="project-metrics">
+            <div class="metric"><div class="metric-val">r=0.924</div><div class="metric-label">vs Experts</div></div>
+            <div class="metric"><div class="metric-val">&lt;200ms</div><div class="metric-label">Inference</div></div>
+          </div>
+        </div>
+        <div class="project-card-bottom">
+          <div class="project-stack-mini">TensorFlow · BERT · MobileNetV2 · FastAPI · Streamlit</div>
+          <div class="project-links">
+            <a href="https://packageai-sindhu.streamlit.app" target="_blank" class="project-link live">⚡ Live</a>
+            <a href="https://github.com/sindhusali/Brand-Attention-Intelligence" target="_blank" class="project-link">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<hr class="divider" style="max-width:1100px;margin:0 auto;"/>
-
-<section id="certs">
-  <div class="section-label">05 / Credentials</div>
-  <h2>Certifications</h2>
-  <div class="certs-grid">
-    <div class="cert-card"><div class="cert-issuer">Anthropic</div><div class="cert-name">Claude AI 101</div></div>
-    <div class="cert-card"><div class="cert-issuer">Anthropic</div><div class="cert-name">AI Fluency: Frameworks &amp; Foundations</div></div>
-    <div class="cert-card"><div class="cert-issuer">Deloitte</div><div class="cert-name">Data Analytics &amp; Dashboard Development</div></div>
-    <div class="cert-card"><div class="cert-issuer">NPTEL</div><div class="cert-name">Introduction to Machine Learning</div></div>
-    <div class="cert-card"><div class="cert-issuer">IIT Bombay</div><div class="cert-name">Python Programming</div></div>
-    <div class="cert-card"><div class="cert-issuer">IIT Bombay</div><div class="cert-name">Linux Training</div></div>
-  </div>
-</section>
-
-<hr class="divider" style="max-width:1100px;margin:0 auto;"/>
-
-<section id="contact">
-  <div class="contact-box">
-    <div class="section-label" style="margin-bottom:0.6rem;">06 / Contact</div>
-    <h2>Let's build something together</h2>
-    <p>Actively looking for full-time roles in AI engineering, GenAI, and full-stack development — India &amp; remote globally.</p>
-    <div class="contact-links">
-      <a href="mailto:sindhusrisali@gmail.com" class="btn btn-primary">✉ sindhusrisali@gmail.com</a>
-      <a href="https://linkedin.com/in/sindhu-sri-sali-6867463b2/" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
-      <a href="https://github.com/sindhusali" target="_blank" class="btn btn-outline">GitHub ↗</a>
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="section-inner">
+    <div class="section-tag reveal">Background</div>
+    <h2 class="section-title reveal">Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="tl-date">Jan 2026 — Mar 2026</div>
+        <div class="tl-title">AI Deployment &amp; Automation Intern</div>
+        <div class="tl-org">AICTE Virtual Internship</div>
+        <ul class="tl-bullets">
+          <li>Shipped 3 production FastAPI microservices with Docker; CI/CD pipelines cutting deployment effort by 60%.</li>
+          <li>Built RAG pipelines and autonomous AI agents with LangChain and LlamaIndex across 10,000+ documents.</li>
+          <li>Implemented error handling across 10 external API integrations, reducing failures by 40%.</li>
+        </ul>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="tl-date">Jan 2025 — Mar 2025</div>
+        <div class="tl-title">AI/ML Intern</div>
+        <div class="tl-org">AICTE Virtual Internship</div>
+        <ul class="tl-bullets">
+          <li>Analyzed 5 structured datasets with Python, Pandas, NumPy, Matplotlib, and Seaborn; reports informed 3 product decisions.</li>
+          <li>Engineered 3 reproducible ML pipelines reducing debugging time by 35%.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<footer>Built by Sindhu Sri Sali · 2026 · Vijayawada, India</footer>
+<!-- CERTIFICATIONS -->
+<section class="section" id="certs">
+  <div class="section-inner">
+    <div class="section-tag reveal">Credentials</div>
+    <h2 class="section-title reveal">Certifications</h2>
+    <div class="certs-grid">
+      <div class="cert-card reveal">
+        <div class="cert-icon purple">🤖</div>
+        <div>
+          <div class="cert-issuer">Anthropic</div>
+          <div class="cert-name">Claude AI 101</div>
+        </div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon purple">⚡</div>
+        <div>
+          <div class="cert-issuer">Anthropic</div>
+          <div class="cert-name">AI Fluency: Frameworks &amp; Foundations</div>
+        </div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon blue">📊</div>
+        <div>
+          <div class="cert-issuer">Deloitte</div>
+          <div class="cert-name">Data Analytics &amp; Dashboard Development</div>
+        </div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon green">🧠</div>
+        <div>
+          <div class="cert-issuer">NPTEL</div>
+          <div class="cert-name">Introduction to Machine Learning</div>
+        </div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon green">🐍</div>
+        <div>
+          <div class="cert-issuer">IIT Bombay</div>
+          <div class="cert-name">Python Programming</div>
+        </div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon blue">🎓</div>
+        <div>
+          <div class="cert-issuer">JNTU Kakinada</div>
+          <div class="cert-name">B.Tech CS (AI &amp; ML) · GPA 8.59</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="contact-inner">
+    <div class="section-tag reveal">Contact</div>
+    <h2 class="section-title reveal">Let's Build Together</h2>
+    <p class="contact-sub reveal">
+      Actively looking for remote AI engineering roles. I ship fast, own the full stack, and care deeply about production quality.
+    </p>
+    <div class="contact-links reveal">
+      <a href="mailto:sindhusrisali@gmail.com" class="contact-link primary">✉ sindhusrisali@gmail.com</a>
+      <a href="https://linkedin.com/in/sindhu-sri-sali-6867463b2/" target="_blank" class="contact-link ghost">LinkedIn ↗</a>
+      <a href="https://github.com/sindhusali" target="_blank" class="contact-link ghost">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Designed &amp; built by Sindhu Sri Sali · 2026 · India
+</footer>
 
 <script>
-  const roles = [
-    "AI & Full Stack Engineer",
-    "ML Engineer",
-    "GenAI Developer",
-    "Backend Engineer",
-    "LLM Engineer",
-   
-  ];
+// Custom cursor
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX - 5 + 'px';
+  cursor.style.top = e.clientY - 5 + 'px';
+});
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('expanded'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('expanded'));
+});
 
-  let roleIndex = 0, charIndex = 0, deleting = false;
-  const el = document.getElementById('typed-role');
-
-  function type() {
-    const current = roles[roleIndex];
-    if (!deleting) {
-      el.textContent = current.slice(0, charIndex + 1);
-      charIndex++;
-      if (charIndex === current.length) {
-        deleting = true;
-        setTimeout(type, 1800);
-        return;
-      }
-    } else {
-      el.textContent = current.slice(0, charIndex - 1);
-      charIndex--;
-      if (charIndex === 0) {
-        deleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-      }
-    }
-    setTimeout(type, deleting ? 45 : 80);
+// Typewriter
+const roles = [
+  'Agentic AI Engineer_',
+  'LLM Engineer_',
+  'GenAI Developer_',
+  'ML Engineer_',
+  'Full Stack Developer_',
+  'RAG Specialist_'
+];
+let ri = 0, ci = 0, deleting = false;
+const el = document.getElementById('typed');
+function type() {
+  const cur = roles[ri];
+  if (!deleting) {
+    el.textContent = cur.slice(0, ci + 1);
+    ci++;
+    if (ci === cur.length) { deleting = true; setTimeout(type, 1800); return; }
+  } else {
+    el.textContent = cur.slice(0, ci - 1);
+    ci--;
+    if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
   }
-  type();
-</script>
+  setTimeout(type, deleting ? 40 : 75);
+}
+type();
 
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
