@@ -146,7 +146,6 @@ nav {
   margin-bottom: 2rem;
   min-height: 20px;
 }
-.role-cycle span { color: var(--signal3); }
 
 .hero-desc {
   font-size: 1rem;
@@ -171,13 +170,15 @@ nav {
 .btn-primary:hover { background: var(--signal2); transform: translateY(-2px); }
 .btn-outline { background: transparent; border: 1.5px solid var(--border); color: var(--ink); }
 .btn-outline:hover { border-color: var(--ink); transform: translateY(-2px); }
+.btn-resume { background: var(--signal); color: var(--ink); border: none; }
+.btn-resume:hover { background: #00ffb3; transform: translateY(-2px); }
 
 /* HERO RIGHT — terminal */
 .terminal {
   background: #0d1117;
   border-radius: 10px;
   width: 100%;
-  max-width: 480px;
+  max-width: 420px;
   font-family: var(--mono);
   overflow: hidden;
   box-shadow: 0 40px 80px rgba(0,0,0,0.5);
@@ -191,30 +192,30 @@ nav {
 .dot.r { background: #ff5f57; }
 .dot.y { background: #ffbd2e; }
 .dot.g { background: #28c840; }
-.terminal-title { font-size: 11px; color: #6e7681; margin-left: auto; }
-.terminal-body { padding: 20px; font-size: 12px; line-height: 1.8; }
+.terminal-title { font-size: 10px; color: #6e7681; margin-left: auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px; }
+.terminal-body { padding: 20px; font-size: 11.5px; line-height: 1.8; }
 .t-comment { color: #6e7681; }
 .t-key { color: #7ee787; }
-.t-val { color: #a5d6ff; }
 .t-str { color: #ff9f59; }
 .t-num { color: #f2cc60; }
 .t-cursor { display: inline-block; width: 8px; height: 14px; background: var(--signal); animation: blink 1s infinite; vertical-align: middle; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-/* floating pills */
+/* floating pills — FIXED */
 .hero-pills {
   position: absolute;
-  top: 20%; right: 10px;
-  display: flex; flex-direction: column; gap: 10px;
+  top: 15%; right: 12px;
+  display: flex; flex-direction: column; gap: 8px;
+  max-width: 180px;
 }
 .pill {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 100px;
-  padding: 6px 14px;
+  padding: 5px 12px;
   font-family: var(--mono);
-  font-size: 10px;
-  color: rgba(255,255,255,0.5);
+  font-size: 9px;
+  color: rgba(255,255,255,0.4);
   white-space: nowrap;
   animation: float 3s ease-in-out infinite;
 }
@@ -228,6 +229,8 @@ nav {
   grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+  max-width: 100vw;
+  overflow: hidden;
 }
 .stat-item {
   padding: 1.8rem 2rem;
@@ -345,11 +348,7 @@ nav {
   line-height: 1.7;
   margin-bottom: 1.2rem;
 }
-.project-metrics {
-  display: flex; gap: 1.2rem;
-  flex-wrap: wrap;
-}
-.metric { }
+.project-metrics { display: flex; gap: 1.2rem; flex-wrap: wrap; }
 .metric-val {
   font-family: var(--mono);
   font-size: 1rem; font-weight: 700;
@@ -361,18 +360,13 @@ nav {
   display: flex; align-items: center; justify-content: space-between;
   background: var(--paper2);
 }
-.project-stack-mini {
-  font-family: var(--mono);
-  font-size: 10px; color: var(--muted);
-}
+.project-stack-mini { font-family: var(--mono); font-size: 10px; color: var(--muted); }
 .project-links { display: flex; gap: 0.8rem; }
 .project-link {
   font-size: 11px; font-weight: 600;
-  text-decoration: none;
-  color: var(--ink);
+  text-decoration: none; color: var(--ink);
   display: flex; align-items: center; gap: 4px;
-  padding: 4px 10px;
-  border-radius: 3px;
+  padding: 4px 10px; border-radius: 3px;
   border: 1px solid var(--border);
   transition: all 0.15s;
 }
@@ -390,46 +384,28 @@ nav {
 .project-card.featured .project-card-bottom { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.8rem; }
 .featured-badge {
   display: inline-block;
-  background: var(--signal);
-  color: var(--ink);
+  background: var(--signal); color: var(--ink);
   font-family: var(--mono);
   font-size: 9px; letter-spacing: 0.15em;
   text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 2px;
+  padding: 3px 8px; border-radius: 2px;
   margin-bottom: 1rem;
 }
 
 /* ── EXPERIENCE ── */
 #experience { background: var(--paper2); }
-.timeline {
-  position: relative;
-  padding-left: 2rem;
-}
+.timeline { position: relative; padding-left: 2rem; }
 .timeline::before {
-  content: '';
-  position: absolute; left: 0; top: 10px; bottom: 10px;
+  content: ''; position: absolute; left: 0; top: 10px; bottom: 10px;
   width: 1px; background: var(--border);
 }
-.timeline-item {
-  position: relative;
-  margin-bottom: 3rem;
-  padding-left: 1.5rem;
-}
+.timeline-item { position: relative; margin-bottom: 3rem; padding-left: 1.5rem; }
 .timeline-item::before {
-  content: '';
-  position: absolute; left: -2rem;
-  top: 8px;
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--signal2);
-  border: 2px solid var(--paper2);
+  content: ''; position: absolute; left: -2rem; top: 8px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--signal2); border: 2px solid var(--paper2);
 }
-.tl-date {
-  font-family: var(--mono);
-  font-size: 11px; color: var(--muted);
-  margin-bottom: 4px;
-}
+.tl-date { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 4px; }
 .tl-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 2px; }
 .tl-org { font-size: 13px; color: var(--signal2); font-weight: 600; margin-bottom: 1rem; }
 .tl-bullets { list-style: none; }
@@ -438,29 +414,18 @@ nav {
   padding-left: 1.2em; position: relative;
   margin-bottom: 5px; line-height: 1.7;
 }
-.tl-bullets li::before {
-  content: '›';
-  position: absolute; left: 0;
-  color: var(--signal); font-weight: 700;
-}
+.tl-bullets li::before { content: '›'; position: absolute; left: 0; color: var(--signal); font-weight: 700; }
 
 /* ── CERTS ── */
-.certs-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
+.certs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 .cert-card {
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 1.4rem;
+  border: 1px solid var(--border); border-radius: 6px; padding: 1.4rem;
   display: flex; gap: 1rem; align-items: flex-start;
   transition: border-color 0.2s, transform 0.2s;
 }
 .cert-card:hover { border-color: var(--signal2); transform: translateY(-2px); }
 .cert-icon {
-  width: 36px; height: 36px;
-  border-radius: 6px;
+  width: 36px; height: 36px; border-radius: 6px;
   display: flex; align-items: center; justify-content: center;
   font-size: 16px; flex-shrink: 0;
 }
@@ -470,15 +435,9 @@ nav {
 .cert-issuer { font-size: 10px; color: var(--muted); font-family: var(--mono); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2px; }
 .cert-name { font-size: 13px; font-weight: 600; }
 
-/* ── CONTACT ── */
-#contact {
-  background: var(--ink);
-  color: var(--paper);
-}
-.contact-inner {
-  max-width: 700px; margin: 0 auto;
-  text-align: center;
-}
+/* ── CONTACT — FIXED ── */
+#contact { background: var(--ink); color: var(--paper); }
+#contact .section-inner { max-width: 700px; margin: 0 auto; text-align: center; }
 #contact .section-tag { color: rgba(255,255,255,0.3); justify-content: center; }
 #contact .section-tag::after { display: none; }
 #contact .section-title { color: var(--paper); text-align: center; }
@@ -486,11 +445,9 @@ nav {
 .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 .contact-link {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 12px 24px;
-  border-radius: 4px;
+  padding: 12px 24px; border-radius: 4px;
   font-size: 13px; font-weight: 600;
-  text-decoration: none;
-  transition: all 0.2s;
+  text-decoration: none; transition: all 0.2s;
   font-family: var(--sans);
 }
 .contact-link.primary { background: var(--signal); color: var(--ink); }
@@ -500,21 +457,13 @@ nav {
 
 /* ── FOOTER ── */
 footer {
-  background: #080810;
-  color: rgba(255,255,255,0.2);
-  text-align: center;
-  padding: 1.5rem;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.05em;
+  background: #080810; color: rgba(255,255,255,0.2);
+  text-align: center; padding: 1.5rem;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em;
 }
 
 /* SCROLL REVEAL */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
 @media (max-width: 900px) {
@@ -564,7 +513,8 @@ footer {
     </p>
     <div class="hero-actions">
       <a href="#projects" class="btn btn-primary">View Projects →</a>
-      <a href="https://sindhusali.github.io/sindhusrisali.github.io/" target="_blank" class="btn btn-outline">Full Portfolio ↗</a>
+      <a href="https://sindhusali.github.io/sindhusrisali.github.io/SindhuSriSali_Resume.pdf" target="_blank" class="btn btn-resume">📄 Resume ↗</a>
+      <a href="https://linkedin.com/in/sindhu-sri-sali-6867463b2/" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
     </div>
   </div>
   <div class="hero-right">
@@ -712,16 +662,12 @@ footer {
     <div class="section-tag reveal">Work</div>
     <h2 class="section-title reveal">Projects</h2>
     <div class="projects-grid">
-
-      <!-- Featured -->
       <div class="project-card featured reveal">
         <div class="project-card-top">
           <div class="featured-badge">✦ Featured</div>
           <div class="project-type">Legal AI · NLP · Fine-Tuning · RAG</div>
           <div class="project-name">ClauseGuard — Contract Intelligence Platform</div>
-          <div class="project-desc">
-            Multi-component contract intelligence platform: LoRA fine-tuned RoBERTa classifier for clause risk categorization, citation-grounded RAG agent, and an automated NLI evaluation harness. Built on CUAD — 500+ expert-annotated commercial contracts.
-          </div>
+          <div class="project-desc">Multi-component contract intelligence platform: LoRA fine-tuned RoBERTa classifier for clause risk categorization, citation-grounded RAG agent, and an automated NLI evaluation harness. Built on CUAD — 500+ expert-annotated commercial contracts.</div>
           <div class="project-metrics">
             <div class="metric"><div class="metric-val">89.0%</div><div class="metric-label">Accuracy</div></div>
             <div class="metric"><div class="metric-val">88.2%</div><div class="metric-label">Macro-F1</div></div>
@@ -738,7 +684,6 @@ footer {
         </div>
       </div>
 
-      <!-- SmartBank -->
       <div class="project-card reveal">
         <div class="project-card-top">
           <div class="project-type">FinTech · ML · GenAI · Full Stack</div>
@@ -758,7 +703,6 @@ footer {
         </div>
       </div>
 
-      <!-- PackageAI -->
       <div class="project-card reveal">
         <div class="project-card-top">
           <div class="project-type">Computer Vision · NLP · Multi-Modal</div>
@@ -777,7 +721,6 @@ footer {
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -819,58 +762,38 @@ footer {
     <div class="certs-grid">
       <div class="cert-card reveal">
         <div class="cert-icon purple">🤖</div>
-        <div>
-          <div class="cert-issuer">Anthropic</div>
-          <div class="cert-name">Claude AI 101</div>
-        </div>
+        <div><div class="cert-issuer">Anthropic</div><div class="cert-name">Claude AI 101</div></div>
       </div>
       <div class="cert-card reveal">
         <div class="cert-icon purple">⚡</div>
-        <div>
-          <div class="cert-issuer">Anthropic</div>
-          <div class="cert-name">AI Fluency: Frameworks &amp; Foundations</div>
-        </div>
+        <div><div class="cert-issuer">Anthropic</div><div class="cert-name">AI Fluency: Frameworks &amp; Foundations</div></div>
       </div>
       <div class="cert-card reveal">
         <div class="cert-icon blue">📊</div>
-        <div>
-          <div class="cert-issuer">Deloitte</div>
-          <div class="cert-name">Data Analytics &amp; Dashboard Development</div>
-        </div>
+        <div><div class="cert-issuer">Deloitte</div><div class="cert-name">Data Analytics &amp; Dashboard Development</div></div>
       </div>
       <div class="cert-card reveal">
         <div class="cert-icon green">🧠</div>
-        <div>
-          <div class="cert-issuer">NPTEL</div>
-          <div class="cert-name">Introduction to Machine Learning</div>
-        </div>
+        <div><div class="cert-issuer">NPTEL</div><div class="cert-name">Introduction to Machine Learning</div></div>
       </div>
       <div class="cert-card reveal">
         <div class="cert-icon green">🐍</div>
-        <div>
-          <div class="cert-issuer">IIT Bombay</div>
-          <div class="cert-name">Python Programming</div>
-        </div>
+        <div><div class="cert-issuer">IIT Bombay</div><div class="cert-name">Python Programming</div></div>
       </div>
       <div class="cert-card reveal">
         <div class="cert-icon blue">🎓</div>
-        <div>
-          <div class="cert-issuer">JNTU Kakinada</div>
-          <div class="cert-name">B.Tech CS (AI &amp; ML) · GPA 8.59</div>
-        </div>
+        <div><div class="cert-issuer">JNTU Kakinada</div><div class="cert-name">B.Tech CS (AI &amp; ML) · GPA 8.59</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- CONTACT — FIXED -->
 <section class="section" id="contact">
-  <div class="contact-inner">
+  <div class="section-inner">
     <div class="section-tag reveal">Contact</div>
     <h2 class="section-title reveal">Let's Build Together</h2>
-    <p class="contact-sub reveal">
-      Actively looking for remote AI engineering roles. I ship fast, own the full stack, and care deeply about production quality.
-    </p>
+    <p class="contact-sub reveal">Actively looking for remote AI engineering roles. I ship fast, own the full stack, and care deeply about production quality.</p>
     <div class="contact-links reveal">
       <a href="mailto:sindhusrisali@gmail.com" class="contact-link primary">✉ sindhusrisali@gmail.com</a>
       <a href="https://linkedin.com/in/sindhu-sri-sali-6867463b2/" target="_blank" class="contact-link ghost">LinkedIn ↗</a>
@@ -879,12 +802,9 @@ footer {
   </div>
 </section>
 
-<footer>
-  Designed &amp; built by Sindhu Sri Sali · 2026 · India
-</footer>
+<footer>Designed &amp; built by Sindhu Sri Sali · 2026 · India</footer>
 
 <script>
-// Custom cursor
 const cursor = document.getElementById('cursor');
 document.addEventListener('mousemove', e => {
   cursor.style.left = e.clientX - 5 + 'px';
@@ -895,33 +815,22 @@ document.querySelectorAll('a, button').forEach(el => {
   el.addEventListener('mouseleave', () => cursor.classList.remove('expanded'));
 });
 
-// Typewriter
-const roles = [
-  'Agentic AI Engineer_',
-  'LLM Engineer_',
-  'GenAI Developer_',
-  'ML Engineer_',
-  'Full Stack Developer_',
-  'RAG Specialist_'
-];
+const roles = ['Agentic AI Engineer_','LLM Engineer_','GenAI Developer_','ML Engineer_','Full Stack Developer_','RAG Specialist_'];
 let ri = 0, ci = 0, deleting = false;
 const el = document.getElementById('typed');
 function type() {
   const cur = roles[ri];
   if (!deleting) {
-    el.textContent = cur.slice(0, ci + 1);
-    ci++;
+    el.textContent = cur.slice(0, ci + 1); ci++;
     if (ci === cur.length) { deleting = true; setTimeout(type, 1800); return; }
   } else {
-    el.textContent = cur.slice(0, ci - 1);
-    ci--;
+    el.textContent = cur.slice(0, ci - 1); ci--;
     if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
   }
   setTimeout(type, deleting ? 40 : 75);
 }
 type();
 
-// Scroll reveal
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
