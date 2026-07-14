@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Sindhu Sri Sali — AI Engineer</title>
+<title>Sindhu Sri Sali — AI / ML Engineer</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -201,30 +201,7 @@ nav {
 .t-cursor { display: inline-block; width: 8px; height: 14px; background: var(--signal); animation: blink 1s infinite; vertical-align: middle; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-/* floating pills — FIXED */
-.hero-pills {
-  position: absolute;
-  bottom: 8%; left: 50%;
-  transform: translateX(-50%);
-  display: flex; flex-direction: row; flex-wrap: wrap;
-  gap: 8px; justify-content: center;
-  width: 90%;
-}
-.pill {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 100px;
-  padding: 5px 12px;
-  font-family: var(--mono);
-  font-size: 9px;
-  color: rgba(255,255,255,0.4);
-  white-space: nowrap;
-  animation: float 3s ease-in-out infinite;
 
-}
-.pill:nth-child(2) { animation-delay: 0.5s; }
-.pill:nth-child(3) { animation-delay: 1s; }
-@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
 
 /* hero stats bar */
 .stats-bar {
@@ -548,11 +525,7 @@ footer {
         <span class="t-key">"status"</span>: <span class="t-str">"actively_looking"</span> <span class="t-cursor"></span>
       </div>
     </div>
-    <div class="hero-pills">
-      <div class="pill">✦ LangChain · RAG · ChromaDB</div>
-      <div class="pill">✦ LoRA Fine-Tuning · NLI Eval</div>
-      <div class="pill">✦ FastAPI · Docker · CI/CD</div>
-    </div>
+  
   </div>
 </section>
 
