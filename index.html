@@ -4,6 +4,9 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Sindhu Sri Sali — AI / ML Engineer</title>
+<meta name="description" content="Portfolio of Sindhu Sri Sali, AI/ML Engineer — LLM fine-tuning, RAG pipelines, and production ML systems."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,6 +26,16 @@
 
 html { scroll-behavior: smooth; }
 
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 body {
   background: var(--paper);
   color: var(--ink);
@@ -33,6 +46,12 @@ body {
   overflow-x: hidden;
 }
 
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--signal2);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 /* ── CURSOR ── */
 .cursor {
   width: 10px; height: 10px;
@@ -41,10 +60,12 @@ body {
   position: fixed;
   pointer-events: none;
   z-index: 9999;
-  transition: transform 0.15s ease, width 0.2s, height 0.2s;
-  mix-blend-mode: multiply;
+  transition: transform 0.15s ease, width 0.2s, height 0.2s, background 0.2s ease;
+  box-shadow: 0 0 0 1px rgba(13,13,18,0.25), 0 0 14px rgba(0,229,160,0.55);
 }
 .cursor.expanded { width: 40px; height: 40px; transform: translate(-15px, -15px); opacity: 0.5; }
+.cursor.on-dark { box-shadow: 0 0 0 1px rgba(245,244,240,0.4), 0 0 14px rgba(0,229,160,0.6); }
+body.no-fine-pointer .cursor { display: none; }
 
 /* ── NAV ── */
 nav {
@@ -63,7 +84,7 @@ nav {
   text-decoration: none;
 }
 .nav-logo span { color: var(--signal2); }
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
 .nav-links a {
   color: var(--muted); text-decoration: none;
   font-size: 13px; font-weight: 500;
@@ -88,6 +109,8 @@ nav {
 }
 .nav-cta:hover { background: var(--signal2) !important; color: #fff !important; }
 .nav-cta::after { display: none !important; }
+.navToggle { display: none; background: none; border: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.navToggle span { width: 22px; height: 2px; background: var(--ink); }
 
 /* ── HERO ── */
 #hero {
@@ -119,7 +142,7 @@ nav {
   font-family: var(--mono);
   font-size: 11px; font-weight: 400;
   letter-spacing: 0.2em;
-  color: var(--signal);
+  color: var(--signal2);
   text-transform: uppercase;
   margin-bottom: 1.5rem;
   display: flex; align-items: center; gap: 10px;
@@ -127,7 +150,7 @@ nav {
 .hero-eyebrow::before {
   content: '';
   display: block; width: 30px; height: 1px;
-  background: var(--signal);
+  background: var(--signal2);
 }
 
 .hero-name {
@@ -200,8 +223,6 @@ nav {
 .t-num { color: #f2cc60; }
 .t-cursor { display: inline-block; width: 8px; height: 14px; background: var(--signal); animation: blink 1s infinite; vertical-align: middle; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-
 
 /* hero stats bar */
 .stats-bar {
@@ -339,6 +360,7 @@ nav {
   padding: 1rem 1.8rem;
   display: flex; align-items: center; justify-content: space-between;
   background: var(--paper2);
+  flex-wrap: wrap; gap: 0.6rem;
 }
 .project-stack-mini { font-family: var(--mono); font-size: 10px; color: var(--muted); }
 .project-links { display: flex; gap: 0.8rem; }
@@ -415,7 +437,26 @@ nav {
 .cert-issuer { font-size: 10px; color: var(--muted); font-family: var(--mono); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2px; }
 .cert-name { font-size: 13px; font-weight: 600; }
 
-/* ── CONTACT — FIXED ── */
+/* ── RESUME ── */
+#resume { background: var(--paper); }
+.resume-card {
+  background: linear-gradient(135deg, rgba(123,94,167,0.07), rgba(0,229,160,0.06));
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 2.6rem; display: flex; align-items: center; justify-content: space-between;
+  gap: 2rem; flex-wrap: wrap;
+}
+.resume-left h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.6rem; letter-spacing: -0.01em; }
+.resume-left p { color: var(--muted); max-width: 440px; font-size: 13.5px; }
+.resume-file {
+  display: flex; align-items: center; gap: 12px; margin-top: 1rem;
+  font-family: var(--mono); font-size: 11.5px; color: var(--muted);
+}
+.file-icon {
+  width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--signal);
+  display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700;
+}
+
+/* ── CONTACT ── */
 #contact { background: var(--ink); color: var(--paper); }
 #contact .section-inner { max-width: 700px; margin: 0 auto; text-align: center; }
 #contact .section-tag { color: rgba(255,255,255,0.3); justify-content: center; }
@@ -446,9 +487,15 @@ footer {
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
+/* mobile terminal (shown only under 900px, placed inline instead of hidden) */
+.terminal-mobile { display: none; }
+
 @media (max-width: 900px) {
   #hero { grid-template-columns: 1fr; }
   .hero-right { display: none; }
+  .terminal-mobile {
+    display: flex; justify-content: center; padding: 0 1.5rem 3rem;
+  }
   .stats-bar { grid-template-columns: repeat(2, 1fr); }
   .skills-board { grid-template-columns: repeat(2, 1fr); }
   .projects-grid { grid-template-columns: 1fr; }
@@ -456,25 +503,42 @@ footer {
   .project-card.featured .project-card-top { border-right: none; border-bottom: 1px solid var(--border); }
   .certs-grid { grid-template-columns: repeat(2, 1fr); }
   nav { padding: 0 1.5rem; }
-  .nav-links { gap: 1.5rem; }
+  .nav-links {
+    position: fixed; top: 64px; left: 0; right: 0; background: var(--paper);
+    flex-direction: column; align-items: flex-start; gap: 0;
+    border-bottom: 1px solid var(--border);
+    max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+  }
+  .nav-links.open { max-height: 400px; }
+  .nav-links a { width: 100%; padding: 16px 1.5rem; border-bottom: 1px solid var(--border); }
+  .nav-links a::after { display: none; }
+  .nav-cta { margin: 12px 1.5rem; display: inline-block; }
+  .navToggle { display: flex; }
   .section { padding: 4rem 1.5rem; }
   .hero-left { padding: 3rem 1.5rem; }
+  .resume-card { padding: 1.8rem; }
+}
+
+@media (max-width: 520px) {
+  .certs-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
 
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">S<span>.</span>SINDHU</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#resume">Resume</a></li>
     <li><a href="#contact" class="nav-cta">Hire Me</a></li>
   </ul>
+  <button class="navToggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- HERO -->
@@ -486,15 +550,15 @@ footer {
       <span class="line2">Sri Sali</span>
     </h1>
     <div class="role-cycle" id="roleText">
-      <span id="typed"></span><span class="t-cursor"></span>
+      <span id="typed"></span><span class="t-cursor" aria-hidden="true"></span>
     </div>
     <p class="hero-desc">
       I build AI systems that run in production — from fine-tuning language models and designing RAG pipelines to shipping full-stack applications with real users. 4 deployed projects. 3 live demos. Zero fluff.
     </p>
     <div class="hero-actions">
       <a href="#projects" class="btn btn-primary">View Projects →</a>
-      <a href="https://sindhusali.github.io/sindhusrisali.github.io/SindhuSriSali_Resume.pdf" target="_blank" class="btn btn-resume">📄 Resume ↗</a>
-      <a href="https://linkedin.com/in/sindhu-sri-sali-6867463b2/" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
+      <a href="https://github.com/sindhusali/sindhusrisali.github.io/blob/main/SindhuSriSali_Resume_.pdf" target="_blank" rel="noopener" class="btn btn-resume">📄 Resume ↗</a>
+      <a href="https://linkedin.com/in/sindhu-sri-sali-6867463b2/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn ↗</a>
     </div>
   </div>
   <div class="hero-right">
@@ -522,12 +586,28 @@ footer {
         &nbsp;&nbsp;<span class="t-str">"LangChain"</span>, <span class="t-str">"RAG"</span>, <span class="t-str">"ChromaDB"</span>,<br>
         &nbsp;&nbsp;<span class="t-str">"FastAPI"</span>, <span class="t-str">"React"</span>, <span class="t-str">"Docker"</span><br>
         ],<br>
-        <span class="t-key">"status"</span>: <span class="t-str">"actively_looking"</span> <span class="t-cursor"></span>
+        <span class="t-key">"status"</span>: <span class="t-str">"actively_looking"</span> <span class="t-cursor" aria-hidden="true"></span>
       </div>
     </div>
-  
   </div>
 </section>
+
+<!-- terminal — mobile fallback (same content, shown below hero on small screens) -->
+<div class="terminal-mobile" aria-hidden="true">
+  <div class="terminal" style="width:100%; max-width:460px;">
+    <div class="terminal-bar">
+      <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+      <span class="terminal-title">sindhu@ai-engineer ~ profile.json</span>
+    </div>
+    <div class="terminal-body">
+      <span class="t-key">"role"</span>: <span class="t-str">"Agentic AI Engineer"</span>,<br>
+      <span class="t-key">"education"</span>: <span class="t-str">"B.Tech CS (AI &amp; ML) · GPA 8.59"</span>,<br>
+      <span class="t-key">"best_metric"</span>: <span class="t-num">97.3</span><span class="t-str">% ROC-AUC</span>,<br>
+      <span class="t-key">"deployed_projects"</span>: <span class="t-num">4</span>,<br>
+      <span class="t-key">"status"</span>: <span class="t-str">"actively_looking"</span>
+    </div>
+  </div>
+</div>
 
 <!-- STATS BAR -->
 <div class="stats-bar reveal">
@@ -654,8 +734,8 @@ footer {
         <div class="project-card-bottom">
           <div class="project-stack-mini">PyTorch · RoBERTa · LoRA · LangChain · ChromaDB · NLI</div>
           <div class="project-links">
-            <a href="https://clauseguard-v2cnt6a5kygr7xpjc9quye.streamlit.app/" target="_blank" class="project-link live">⚡ Live Demo</a>
-            <a href="https://github.com/sindhusali/clauseguard" target="_blank" class="project-link">GitHub ↗</a>
+            <a href="https://clauseguard-v2cnt6a5kygr7xpjc9quye.streamlit.app/" target="_blank" rel="noopener" class="project-link live">⚡ Live Demo</a>
+            <a href="https://github.com/sindhusali/clauseguard" target="_blank" rel="noopener" class="project-link">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -673,8 +753,8 @@ footer {
         <div class="project-card-bottom">
           <div class="project-stack-mini">XGBoost · FastAPI · React · PostgreSQL · LLaMA 3.1</div>
           <div class="project-links">
-            <a href="https://smartbank-ai-snowy.vercel.app/login" target="_blank" class="project-link live">⚡ Live</a>
-            <a href="https://github.com/sindhusali/smartbank-ai" target="_blank" class="project-link">GitHub ↗</a>
+            <a href="https://smartbank-ai-snowy.vercel.app/login" target="_blank" rel="noopener" class="project-link live">⚡ Live</a>
+            <a href="https://github.com/sindhusali/smartbank-ai" target="_blank" rel="noopener" class="project-link">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -692,8 +772,8 @@ footer {
         <div class="project-card-bottom">
           <div class="project-stack-mini">TensorFlow · BERT · MobileNetV2 · FastAPI · Streamlit</div>
           <div class="project-links">
-            <a href="https://packageai-sindhu.streamlit.app" target="_blank" class="project-link live">⚡ Live</a>
-            <a href="https://github.com/sindhusali/Brand-Attention-Intelligence" target="_blank" class="project-link">GitHub ↗</a>
+            <a href="https://packageai.streamlit.app/" target="_blank" rel="noopener" class="project-link live">⚡ Live</a>
+            <a href="https://github.com/sindhusali/Brand-Attention-Intelligence" target="_blank" rel="noopener" class="project-link">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -764,7 +844,26 @@ footer {
   </div>
 </section>
 
-<!-- CONTACT — FIXED -->
+<!-- RESUME -->
+<section class="section" id="resume">
+  <div class="section-inner">
+    <div class="section-tag reveal">Export</div>
+    <h2 class="section-title reveal">Resume</h2>
+    <div class="resume-card reveal">
+      <div class="resume-left">
+        <h3>Full resume — Sindhu Sri Sali</h3>
+        <p>Every project above, plus full education, experience, and certification details in one document.</p>
+        <div class="resume-file">
+          <div class="file-icon">PDF</div>
+          <span>SindhuSriSali_Resume_.pdf</span>
+        </div>
+      </div>
+      <a href="https://github.com/sindhusali/sindhusrisali.github.io/blob/main/SindhuSriSali_Resume_.pdf" target="_blank" rel="noopener" class="btn btn-primary">Download Resume ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section class="section" id="contact">
   <div class="section-inner">
     <div class="section-tag reveal">Contact</div>
@@ -772,8 +871,8 @@ footer {
     <p class="contact-sub reveal">Actively looking for remote AI engineering roles. I ship fast, own the full stack, and care deeply about production quality.</p>
     <div class="contact-links reveal">
       <a href="mailto:sindhusrisali@gmail.com" class="contact-link primary">✉ sindhusrisali@gmail.com</a>
-      <a href="https://linkedin.com/in/sindhu-sri-sali-6867463b2/" target="_blank" class="contact-link ghost">LinkedIn ↗</a>
-      <a href="https://github.com/sindhusali" target="_blank" class="contact-link ghost">GitHub ↗</a>
+      <a href="https://linkedin.com/in/sindhu-sri-sali-6867463b2/" target="_blank" rel="noopener" class="contact-link ghost">LinkedIn ↗</a>
+      <a href="https://github.com/sindhusali" target="_blank" rel="noopener" class="contact-link ghost">GitHub ↗</a>
     </div>
   </div>
 </section>
@@ -781,36 +880,69 @@ footer {
 <footer>Designed &amp; built by Sindhu Sri Sali · 2026 · India</footer>
 
 <script>
-const cursor = document.getElementById('cursor');
-document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX - 5 + 'px';
-  cursor.style.top = e.clientY - 5 + 'px';
-});
-document.querySelectorAll('a, button').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.classList.add('expanded'));
-  el.addEventListener('mouseleave', () => cursor.classList.remove('expanded'));
-});
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+if (!hasFinePointer) document.body.classList.add('no-fine-pointer');
 
-const roles = ['Agentic AI Engineer_','LLM Engineer_','GenAI Developer_','ML Engineer_','Full Stack Developer_','RAG Specialist_'];
-let ri = 0, ci = 0, deleting = false;
-const el = document.getElementById('typed');
-function type() {
-  const cur = roles[ri];
-  if (!deleting) {
-    el.textContent = cur.slice(0, ci + 1); ci++;
-    if (ci === cur.length) { deleting = true; setTimeout(type, 1800); return; }
-  } else {
-    el.textContent = cur.slice(0, ci - 1); ci--;
-    if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
-  }
-  setTimeout(type, deleting ? 40 : 75);
+/* custom cursor — skip entirely on touch devices or reduced motion */
+if (hasFinePointer && !reducedMotion) {
+  const cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX - 5 + 'px';
+    cursor.style.top = e.clientY - 5 + 'px';
+  });
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('expanded'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('expanded'));
+  });
+  document.querySelectorAll('.hero-right, #skills, #contact').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('on-dark'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('on-dark'));
+  });
+} else {
+  document.getElementById('cursor').style.display = 'none';
 }
-type();
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+/* mobile nav toggle */
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+/* typewriter role cycle */
+const roles = ['Agentic AI Engineer_','LLM Engineer_','GenAI Developer_','ML Engineer_','Full Stack Developer_','RAG Specialist_'];
+const typedEl = document.getElementById('typed');
+if (reducedMotion) {
+  typedEl.textContent = roles[0];
+} else {
+  let ri = 0, ci = 0, deleting = false;
+  function type() {
+    const cur = roles[ri];
+    if (!deleting) {
+      typedEl.textContent = cur.slice(0, ci + 1); ci++;
+      if (ci === cur.length) { deleting = true; setTimeout(type, 1800); return; }
+    } else {
+      typedEl.textContent = cur.slice(0, ci - 1); ci--;
+      if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
+    }
+    setTimeout(type, deleting ? 40 : 75);
+  }
+  type();
+}
+
+/* scroll reveal */
+const revealEls = document.querySelectorAll('.reveal');
+if (reducedMotion) {
+  revealEls.forEach(el => el.classList.add('visible'));
+} else {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+}
 </script>
 </body>
 </html>
