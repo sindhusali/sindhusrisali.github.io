@@ -417,6 +417,10 @@ nav {
   margin-bottom: 5px; line-height: 1.7;
 }
 .tl-bullets li::before { content: '›'; position: absolute; left: 0; color: var(--signal); font-weight: 700; }
+.tl-todo { color: var(--signal3) !important; font-weight: 600; font-family: var(--mono); font-size: 11.5px !important; }
+.tl-todo::before { content: '⚑' !important; color: var(--signal3) !important; }
+.tl-date.tl-todo::before { display: none; content: none !important; }
+.tl-date.tl-todo { color: var(--signal3) !important; }
 
 /* ── CERTS ── */
 .certs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
@@ -434,8 +438,48 @@ nav {
 .cert-icon.purple { background: rgba(123,94,167,0.1); }
 .cert-icon.blue { background: rgba(0,120,212,0.1); }
 .cert-icon.green { background: rgba(0,229,160,0.1); }
+.cert-icon.orange { background: rgba(255,107,53,0.1); }
+.cert-body { display: flex; flex-direction: column; gap: 2px; }
 .cert-issuer { font-size: 10px; color: var(--muted); font-family: var(--mono); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2px; }
 .cert-name { font-size: 13px; font-weight: 600; }
+.cert-link {
+  font-family: var(--mono); font-size: 10.5px; font-weight: 600; color: var(--signal2);
+  text-decoration: none; margin-top: 8px; display: inline-flex; align-items: center; gap: 4px;
+  width: fit-content; border-bottom: 1px solid transparent; transition: border-color 0.2s;
+}
+.cert-link:hover { border-bottom-color: var(--signal2); }
+.tl-cert-link {
+  font-family: var(--mono); font-size: 11px; font-weight: 600; color: var(--signal2);
+  text-decoration: none; margin-top: 10px; display: inline-flex; align-items: center; gap: 5px;
+  border: 1px solid var(--border); padding: 5px 12px; border-radius: 20px; width: fit-content;
+  transition: border-color 0.2s, background 0.2s;
+}
+.tl-cert-link:hover { border-color: var(--signal2); background: rgba(123,94,167,0.06); }
+
+/* ── EDUCATION ── */
+#education { background: var(--paper2); }
+.edu-card {
+  display: flex; gap: 1.6rem; align-items: flex-start;
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 2rem 2.2rem; background: var(--paper);
+}
+.edu-icon {
+  width: 48px; height: 48px; border-radius: 8px; flex-shrink: 0;
+  background: rgba(123,94,167,0.1);
+  display: flex; align-items: center; justify-content: center; font-size: 22px;
+}
+.edu-degree { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 6px; }
+.edu-college { font-size: 14px; color: var(--signal2); font-weight: 600; margin-bottom: 3px; }
+.edu-affil { font-size: 12.5px; color: var(--muted); margin-bottom: 14px; }
+.edu-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.edu-chip {
+  font-family: var(--mono); font-size: 11px; color: var(--ink);
+  border: 1px solid var(--border); padding: 4px 11px; border-radius: 20px;
+  background: var(--paper2);
+}
+@media (max-width: 600px) {
+  .edu-card { flex-direction: column; }
+}
 
 /* ── RESUME ── */
 #resume { background: var(--paper); }
@@ -487,6 +531,47 @@ footer {
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
+/* ── PDF VIEWER DRAWER ── */
+#pdfOverlay {
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(13,13,18,0.55);
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+#pdfOverlay.open { opacity: 1; visibility: visible; }
+#pdfDrawer {
+  position: fixed; top: 0; left: 0; bottom: 0; z-index: 2001;
+  width: min(720px, 92vw); background: var(--paper);
+  box-shadow: 30px 0 80px rgba(0,0,0,0.35);
+  transform: translateX(-100%);
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+  display: flex; flex-direction: column;
+}
+#pdfDrawer.open { transform: translateX(0); }
+.pdf-drawer-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 16px 20px; border-bottom: 1px solid var(--border);
+  background: var(--paper2); flex-shrink: 0;
+}
+.pdf-drawer-title {
+  font-family: var(--mono); font-size: 12.5px; font-weight: 600; color: var(--ink);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.pdf-drawer-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.pdf-drawer-actions a {
+  font-family: var(--mono); font-size: 11px; color: var(--signal2); text-decoration: none;
+  border: 1px solid var(--border); padding: 5px 11px; border-radius: 20px; white-space: nowrap;
+}
+.pdf-drawer-actions a:hover { border-color: var(--signal2); }
+.pdf-drawer-close {
+  width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--border);
+  background: var(--paper); color: var(--ink); font-size: 16px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s;
+}
+.pdf-drawer-close:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+#pdfDrawer iframe { flex: 1; width: 100%; border: none; background: #525659; }
+
 /* mobile terminal (shown only under 900px, placed inline instead of hidden) */
 .terminal-mobile { display: none; }
 
@@ -517,6 +602,7 @@ footer {
   .section { padding: 4rem 1.5rem; }
   .hero-left { padding: 3rem 1.5rem; }
   .resume-card { padding: 1.8rem; }
+  #pdfDrawer { width: 100vw; }
 }
 
 @media (max-width: 520px) {
@@ -528,6 +614,18 @@ footer {
 
 <div class="cursor" id="cursor" aria-hidden="true"></div>
 
+<div id="pdfOverlay"></div>
+<div id="pdfDrawer" role="dialog" aria-modal="true" aria-label="Document viewer">
+  <div class="pdf-drawer-bar">
+    <div class="pdf-drawer-title" id="pdfDrawerTitle">Document</div>
+    <div class="pdf-drawer-actions">
+      <a id="pdfDrawerOpenNew" href="#" target="_blank" rel="noopener">Open in new tab ↗</a>
+      <button class="pdf-drawer-close" id="pdfDrawerClose" aria-label="Close">✕</button>
+    </div>
+  </div>
+  <iframe id="pdfDrawerFrame" title="PDF preview" src="about:blank"></iframe>
+</div>
+
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">S<span>.</span>SINDHU</a>
@@ -535,6 +633,7 @@ footer {
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#resume">Resume</a></li>
     <li><a href="#contact" class="nav-cta">Hire Me</a></li>
   </ul>
@@ -557,7 +656,7 @@ footer {
     </p>
     <div class="hero-actions">
       <a href="#projects" class="btn btn-primary">View Projects →</a>
-      <a href="https://github.com/sindhusali/sindhusrisali.github.io/blob/main/SindhuSriSali_Resume_.pdf" target="_blank" rel="noopener" class="btn btn-resume">📄 Resume ↗</a>
+      <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/SindhuSriSali_Resume_.pdf" target="_blank" rel="noopener" data-title="Resume — Sindhu Sri Sali" class="btn btn-resume pdf-link">📄 Resume ↗</a>
       <a href="https://linkedin.com/in/sindhu-sri-sali-6867463b2/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn ↗</a>
     </div>
   </div>
@@ -573,7 +672,7 @@ footer {
         <span class="t-key">"name"</span>: <span class="t-str">"Sindhu Sri Sali"</span>,<br>
         <span class="t-key">"role"</span>: <span class="t-str">"Agentic AI Engineer"</span>,<br>
         <span class="t-key">"location"</span>: <span class="t-str">"India 🇮🇳 · Remote Ready"</span>,<br>
-        <span class="t-key">"education"</span>: <span class="t-str">"B.Tech CS (AI &amp; ML) · GPA 8.59"</span>,<br>
+        <span class="t-key">"education"</span>: <span class="t-str">"B.Tech CSE-AIML · CGPA 8.59"</span>,<br>
         <br>
         <span class="t-key">"models_fine_tuned"</span>: [<br>
         &nbsp;&nbsp;<span class="t-str">"RoBERTa + LoRA"</span>, <span class="t-str">"BERT"</span><br>
@@ -601,7 +700,7 @@ footer {
     </div>
     <div class="terminal-body">
       <span class="t-key">"role"</span>: <span class="t-str">"Agentic AI Engineer"</span>,<br>
-      <span class="t-key">"education"</span>: <span class="t-str">"B.Tech CS (AI &amp; ML) · GPA 8.59"</span>,<br>
+      <span class="t-key">"education"</span>: <span class="t-str">"B.Tech CSE-AIML · CGPA 8.59"</span>,<br>
       <span class="t-key">"best_metric"</span>: <span class="t-num">97.3</span><span class="t-str">% ROC-AUC</span>,<br>
       <span class="t-key">"deployed_projects"</span>: <span class="t-num">4</span>,<br>
       <span class="t-key">"status"</span>: <span class="t-str">"actively_looking"</span>
@@ -790,21 +889,35 @@ footer {
       <div class="timeline-item reveal">
         <div class="tl-date">Jan 2026 — Mar 2026</div>
         <div class="tl-title">AI Deployment &amp; Automation Intern</div>
-        <div class="tl-org">AICTE Virtual Internship</div>
+        <div class="tl-org">AICTE Virtual Internship · EduSkills</div>
         <ul class="tl-bullets">
           <li>Shipped 3 production FastAPI microservices with Docker; CI/CD pipelines cutting deployment effort by 60%.</li>
           <li>Built RAG pipelines and autonomous AI agents with LangChain and LlamaIndex across 10,000+ documents.</li>
           <li>Implemented error handling across 10 external API integrations, reducing failures by 40%.</li>
         </ul>
+        <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/AI_Deployment_Automation_Internship.pdf" data-title="AI Deployment &amp; Automation Internship Certificate" rel="noopener" class="tl-cert-link pdf-link">📄 View Certificate ↗</a>
       </div>
       <div class="timeline-item reveal">
         <div class="tl-date">Jan 2025 — Mar 2025</div>
-        <div class="tl-title">AI/ML Intern</div>
-        <div class="tl-org">AICTE Virtual Internship</div>
+        <div class="tl-title">Android Developer Internship</div>
+        <div class="tl-org">EduSkills × Google for Developers</div>
         <ul class="tl-bullets">
-          <li>Analyzed 5 structured datasets with Python, Pandas, NumPy, Matplotlib, and Seaborn; reports informed 3 product decisions.</li>
-          <li>Engineered 3 reproducible ML pipelines reducing debugging time by 35%.</li>
+          <li>Completed 10-week Android Developer internship with Google for Developers, building mobile applications using Java, Android SDK, and Material Design guidelines.</li>
+          <li>Implemented full app lifecycle including UI components, REST API integration, background threading, and local data persistence using SQLite.</li>
+          <li>Applied Git version control, unit testing, and debugging practices to deliver responsive, maintainable Android applications following Google engineering standards.</li>
         </ul>
+        <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/Android_Developer_Certificate.pdf" data-title="Android Developer Internship Certificate" rel="noopener" class="tl-cert-link pdf-link">📄 View Certificate ↗</a>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="tl-date">Jul 2024 — Sep 2024</div>
+        <div class="tl-title">AI-ML Internship</div>
+        <div class="tl-org">EduSkills × Google for Developers</div>
+        <ul class="tl-bullets">
+          <li>Completed 10-week AI/ML internship with Google for Developers covering end-to-end ML workflows — data preprocessing, feature engineering, model training, and evaluation using Python and TensorFlow.</li>
+          <li>Built and optimized supervised learning models across classification and regression tasks, evaluating performance using precision, recall, F1-score, and ROC-AUC metrics.</li>
+          <li>Applied hands-on ML skills through real-world projects, directly contributing to production AI systems achieving 97.3% ROC-AUC in fraud detection.</li>
+        </ul>
+        <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/AIML_Certificate.pdf" data-title="AI-ML Internship Certificate" rel="noopener" class="tl-cert-link pdf-link">📄 View Certificate ↗</a>
       </div>
     </div>
   </div>
@@ -818,27 +931,87 @@ footer {
     <div class="certs-grid">
       <div class="cert-card reveal">
         <div class="cert-icon purple">🤖</div>
-        <div><div class="cert-issuer">Anthropic</div><div class="cert-name">Claude AI 101</div></div>
+        <div class="cert-body">
+          <div class="cert-issuer">Anthropic</div>
+          <div class="cert-name">Claude AI 101</div>
+          <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/Claude101.pdf" data-title="Claude AI 101 — Anthropic" rel="noopener" class="cert-link pdf-link">View Certificate ↗</a>
+        </div>
       </div>
       <div class="cert-card reveal">
         <div class="cert-icon purple">⚡</div>
-        <div><div class="cert-issuer">Anthropic</div><div class="cert-name">AI Fluency: Frameworks &amp; Foundations</div></div>
+        <div class="cert-body">
+          <div class="cert-issuer">Anthropic</div>
+          <div class="cert-name">AI Fluency: Frameworks &amp; Foundations</div>
+          <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/AI_Fluency.pdf" data-title="AI Fluency: Frameworks & Foundations — Anthropic" rel="noopener" class="cert-link pdf-link">View Certificate ↗</a>
+        </div>
       </div>
       <div class="cert-card reveal">
         <div class="cert-icon blue">📊</div>
-        <div><div class="cert-issuer">Deloitte</div><div class="cert-name">Data Analytics &amp; Dashboard Development</div></div>
+        <div class="cert-body">
+          <div class="cert-issuer">Deloitte</div>
+          <div class="cert-name">Data Analytics &amp; Dashboard Development</div>
+          <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/deloitte%20certificate.pdf" data-title="Data Analytics & Dashboard Development — Deloitte" rel="noopener" class="cert-link pdf-link">View Certificate ↗</a>
+        </div>
       </div>
       <div class="cert-card reveal">
         <div class="cert-icon green">🧠</div>
-        <div><div class="cert-issuer">NPTEL</div><div class="cert-name">Introduction to Machine Learning</div></div>
+        <div class="cert-body">
+          <div class="cert-issuer">NPTEL</div>
+          <div class="cert-name">Introduction to Machine Learning</div>
+          <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/Machine_Learning_Certificate.pdf" data-title="Introduction to Machine Learning — NPTEL" rel="noopener" class="cert-link pdf-link">View Certificate ↗</a>
+        </div>
       </div>
       <div class="cert-card reveal">
-        <div class="cert-icon green">🐍</div>
-        <div><div class="cert-issuer">IIT Bombay</div><div class="cert-name">Python Programming</div></div>
+        <div class="cert-icon green">🗄️</div>
+        <div class="cert-body">
+          <div class="cert-issuer">NPTEL</div>
+          <div class="cert-name">Database Management Systems</div>
+          <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/DBMS_Certificate.pdf" data-title="Database Management Systems — NPTEL" rel="noopener" class="cert-link pdf-link">View Certificate ↗</a>
+        </div>
       </div>
       <div class="cert-card reveal">
-        <div class="cert-icon blue">🎓</div>
-        <div><div class="cert-issuer">JNTU Kakinada</div><div class="cert-name">B.Tech CS (AI &amp; ML) · GPA 8.59</div></div>
+        <div class="cert-icon orange">🐍</div>
+        <div class="cert-body">
+          <div class="cert-issuer">Spoken Tutorial Project, IIT Bombay</div>
+          <div class="cert-name">Python 3.4.3 Training</div>
+          <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/Python_Training_Certificate.pdf" data-title="Python 3.4.3 Training — Spoken Tutorial Project, IIT Bombay" rel="noopener" class="cert-link pdf-link">View Certificate ↗</a>
+        </div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon orange">☕</div>
+        <div class="cert-body">
+          <div class="cert-issuer">Spoken Tutorial Project, IIT Bombay</div>
+          <div class="cert-name">Java Programming Training</div>
+          <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/Java_Training.pdf" data-title="Java Programming Training — Spoken Tutorial Project, IIT Bombay" rel="noopener" class="cert-link pdf-link">View Certificate ↗</a>
+        </div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon orange">🐧</div>
+        <div class="cert-body">
+          <div class="cert-issuer">Spoken Tutorial Project, IIT Bombay</div>
+          <div class="cert-name">Linux Training</div>
+          <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/Linux_Training_Certificate.pdf" data-title="Linux Training — Spoken Tutorial Project, IIT Bombay" rel="noopener" class="cert-link pdf-link">View Certificate ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section" id="education">
+  <div class="section-inner">
+    <div class="section-tag reveal">Background</div>
+    <h2 class="section-title reveal">Education</h2>
+    <div class="edu-card reveal">
+      <div class="edu-icon">🎓</div>
+      <div class="edu-body">
+        <div class="edu-degree">B.Tech — Computer Science and Engineering (Artificial Intelligence and Machine Learning)</div>
+        <div class="edu-college">Prasad V. Potluri Siddhartha Institute of Technology (PVPSIT)</div>
+        <div class="edu-affil">Affiliated to Jawaharlal Nehru Technological University, Kakinada (JNTUK)</div>
+        <div class="edu-meta">
+          <span class="edu-chip">2022 — 2026</span>
+          <span class="edu-chip">CGPA 8.59</span>
+        </div>
       </div>
     </div>
   </div>
@@ -858,7 +1031,7 @@ footer {
           <span>SindhuSriSali_Resume_.pdf</span>
         </div>
       </div>
-      <a href="https://github.com/sindhusali/sindhusrisali.github.io/blob/main/SindhuSriSali_Resume_.pdf" target="_blank" rel="noopener" class="btn btn-primary">Download Resume ↓</a>
+      <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/SindhuSriSali_Resume_.pdf" target="_blank" rel="noopener" data-title="Resume — Sindhu Sri Sali" class="btn btn-primary pdf-link">Download Resume ↓</a>
     </div>
   </div>
 </section>
@@ -881,6 +1054,47 @@ footer {
 
 <script>
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------------- PDF split-panel viewer ---------------- */
+(function pdfDrawer(){
+  const overlay = document.getElementById('pdfOverlay');
+  const drawer = document.getElementById('pdfDrawer');
+  const frame = document.getElementById('pdfDrawerFrame');
+  const titleEl = document.getElementById('pdfDrawerTitle');
+  const openNew = document.getElementById('pdfDrawerOpenNew');
+  const closeBtn = document.getElementById('pdfDrawerClose');
+  const isMobile = window.matchMedia('(max-width: 720px)').matches;
+
+  function openDrawer(url, title){
+    // On small screens a side panel doesn't fit well — open the PDF directly instead.
+    if (isMobile) { window.open(url, '_blank', 'noopener'); return; }
+    frame.src = url;
+    titleEl.textContent = title || 'Document';
+    openNew.href = url;
+    overlay.classList.add('open');
+    drawer.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer(){
+    overlay.classList.remove('open');
+    drawer.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(()=>{ frame.src = 'about:blank'; }, 350);
+  }
+
+  document.querySelectorAll('a.pdf-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      openDrawer(link.getAttribute('href'), link.getAttribute('data-title'));
+    });
+  });
+  overlay.addEventListener('click', closeDrawer);
+  closeBtn.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+  });
+})();
+
 const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
 if (!hasFinePointer) document.body.classList.add('no-fine-pointer');
 
