@@ -620,6 +620,7 @@ footer {
     <div class="pdf-drawer-title" id="pdfDrawerTitle">Document</div>
     <div class="pdf-drawer-actions">
       <a id="pdfDrawerOpenNew" href="#" target="_blank" rel="noopener">Open in new tab ↗</a>
+      <a id="pdfDrawerDownload" href="#" target="_blank" rel="noopener">Download ↓</a>
       <button class="pdf-drawer-close" id="pdfDrawerClose" aria-label="Close">✕</button>
     </div>
   </div>
@@ -1062,15 +1063,21 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matc
   const frame = document.getElementById('pdfDrawerFrame');
   const titleEl = document.getElementById('pdfDrawerTitle');
   const openNew = document.getElementById('pdfDrawerOpenNew');
+  const downloadLink = document.getElementById('pdfDrawerDownload');
   const closeBtn = document.getElementById('pdfDrawerClose');
   const isMobile = window.matchMedia('(max-width: 720px)').matches;
 
   function openDrawer(url, title){
-    // On small screens a side panel doesn't fit well — open the PDF directly instead.
-    if (isMobile) { window.open(url, '_blank', 'noopener'); return; }
-    frame.src = url;
+    const viewerUrl = 'https://docs.google.com/viewer?embedded=true&url=' + encodeURIComponent(url);
+    // On small screens a side panel doesn't fit well — open the preview directly in a new tab instead.
+    if (isMobile) { window.open(viewerUrl, '_blank', 'noopener'); return; }
+    // GitHub's raw file server doesn't send a proper application/pdf content-type,
+    // so the browser downloads the file instead of previewing it. Routing through
+    // Google's viewer forces an inline render regardless of the source content-type.
+    frame.src = viewerUrl;
     titleEl.textContent = title || 'Document';
-    openNew.href = url;
+    openNew.href = viewerUrl;
+    downloadLink.href = url;
     overlay.classList.add('open');
     drawer.classList.add('open');
     document.body.style.overflow = 'hidden';
