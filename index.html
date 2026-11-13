@@ -533,6 +533,11 @@ footer {
 .shot-fallback b { font-family: var(--mono); font-size: 2rem; color: var(--signal); }
 .shot-fallback span { font-size: 12.5px; color: rgba(255,255,255,0.65); }
 .project-shot.missing .shot-fallback { display: flex; }
+.project-shot.contain .shot-frame { background: #0d0d1c; }
+.project-shot.contain img { object-fit: contain; object-position: center; }
+.shot-more { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); font-size: 12.5px; font-weight: 600; border: 1px solid var(--border); border-radius: 4px; padding: 6px; background: var(--paper); }
+.shot-more img { width: 96px; height: 60px; object-fit: cover; object-position: top left; border-radius: 3px; border: 1px solid var(--border); display: block; }
+.shot-more:hover { border-color: var(--signal2); }
 .project-shot.missing img { display: none; }
 .project-card.featured .project-shot { width: 100%; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
 .project-tag { font-family: var(--mono); font-size: 11.5px; color: var(--muted); border: 1px dashed var(--border); padding: 4px 10px; border-radius: 3px; }
@@ -762,6 +767,7 @@ footer {
           <div class="project-shot"><div class="shot-bar"><i></i><i></i><i></i></div><div class="shot-frame">
           <img src="img/clauseguard.png" alt="ClauseGuard app showing a contract clause risk classification" loading="lazy" onerror="this.closest('.project-shot').classList.add('missing')"/>
           <div class="shot-fallback"><b>89.0%</b><span>accuracy · clause risk classifier</span></div></div></div>
+          <a class="shot-more" href="img/clauseguard-2.png" target="_blank" rel="noopener"><img src="img/clauseguard-2.png" alt="ClauseGuard supporting clauses shown for a risk score" loading="lazy" onerror="this.parentElement.remove()"/><span>See the supporting clauses behind each score ↗</span></a>
           <div class="project-stack-mini">PyTorch · RoBERTa · LoRA · LangChain · ChromaDB · NLI</div>
           <div class="project-links">
             <a href="https://clauseguard-v2cnt6a5kygr7xpjc9quye.streamlit.app/" target="_blank" rel="noopener" class="project-link live">Live demo ↗</a>
@@ -793,7 +799,7 @@ footer {
       </div>
 
       <div class="project-card reveal">
-        <div class="project-shot"><div class="shot-bar"><i></i><i></i><i></i></div><div class="shot-frame">
+        <div class="project-shot contain"><div class="shot-bar"><i></i><i></i><i></i></div><div class="shot-frame">
           <img src="img/packageai.png" alt="PackageAI brand attention score interface" loading="lazy" onerror="this.closest('.project-shot').classList.add('missing')"/>
           <div class="shot-fallback"><b>r = 0.924</b><span>correlation with expert ratings</span></div></div></div>
         <div class="project-card-top">
