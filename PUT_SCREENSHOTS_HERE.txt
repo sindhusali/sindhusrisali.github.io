@@ -1,0 +1,6 @@
+Add three screenshots of your live apps in this folder, with exactly these names:
+  clauseguard.png   (ClauseGuard app showing a result)
+  smartbank.png     (SmartBank AI dashboard, after login)
+  packageai.png     (PackageAI showing a score)
+Tip: browser window about 1280 px wide, crop to the app only, PNG.
+Until a file exists, its card shows a neat metric panel instead.

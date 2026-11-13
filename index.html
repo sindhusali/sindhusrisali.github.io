@@ -3,8 +3,17 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Sindhu Sri Sali — AI / ML Engineer</title>
-<meta name="description" content="Portfolio of Sindhu Sri Sali, AI/ML Engineer — LLM fine-tuning, RAG pipelines, and production ML systems."/>
+<title>Sindhu Sri Sali — AI Engineer</title>
+<meta name="description" content="Sindhu Sri Sali, AI Engineer from India. LLM fine-tuning, RAG pipelines and ML systems, with live demos. Open to on-site, hybrid and remote roles."/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d0d12'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='30' font-weight='700' text-anchor='middle' fill='%2300e5a0'%3ESS%3C/text%3E%3C/svg%3E"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Sindhu Sri Sali — AI Engineer"/>
+<meta property="og:description" content="LLM fine-tuning, RAG pipelines and ML systems, with live demos and code."/>
+<meta property="og:url" content="https://sindhusali.github.io/"/>
+<meta property="og:image" content="https://sindhusali.github.io/og.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="theme-color" content="#0d0d12"/>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
@@ -51,21 +60,6 @@ a:focus-visible, button:focus-visible {
   outline-offset: 3px;
   border-radius: 2px;
 }
-
-/* ── CURSOR ── */
-.cursor {
-  width: 10px; height: 10px;
-  background: var(--signal);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  transition: transform 0.15s ease, width 0.2s, height 0.2s, background 0.2s ease;
-  box-shadow: 0 0 0 1px rgba(13,13,18,0.25), 0 0 14px rgba(0,229,160,0.55);
-}
-.cursor.expanded { width: 40px; height: 40px; transform: translate(-15px, -15px); opacity: 0.5; }
-.cursor.on-dark { box-shadow: 0 0 0 1px rgba(245,244,240,0.4), 0 0 14px rgba(0,229,160,0.6); }
-body.no-fine-pointer .cursor { display: none; }
 
 /* ── NAV ── */
 nav {
@@ -164,8 +158,8 @@ nav {
 
 .role-cycle {
   font-family: var(--mono);
-  font-size: 14px;
-  color: var(--muted);
+  font-size: 15px;
+  color: var(--ink);
   margin-bottom: 2rem;
   min-height: 20px;
 }
@@ -215,7 +209,7 @@ nav {
 .dot.r { background: #ff5f57; }
 .dot.y { background: #ffbd2e; }
 .dot.g { background: #28c840; }
-.terminal-title { font-size: 10px; color: #6e7681; margin-left: auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px; }
+.terminal-title { font-size: 11px; color: #6e7681; margin-left: auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px; }
 .terminal-body { padding: 20px; font-size: 11.5px; line-height: 1.8; }
 .t-comment { color: #6e7681; }
 .t-key { color: #7ee787; }
@@ -245,15 +239,15 @@ nav {
   margin-bottom: 4px;
 }
 .stat-num em { color: var(--signal2); font-style: normal; }
-.stat-desc { font-size: 11px; color: var(--muted); letter-spacing: 0.03em; }
+.stat-desc { font-size: 12.5px; color: var(--muted); letter-spacing: 0.03em; }
 
 /* ── SECTIONS ── */
 .section { padding: 6rem 3.5rem; }
 .section-inner { max-width: 1100px; margin: 0 auto; }
 .section-tag {
   font-family: var(--mono);
-  font-size: 10px; color: var(--muted);
-  letter-spacing: 0.2em; text-transform: uppercase;
+  font-size: 12px; color: var(--muted);
+  letter-spacing: 0.14em; text-transform: uppercase;
   margin-bottom: 0.5rem;
   display: flex; align-items: center; gap: 8px;
 }
@@ -271,13 +265,13 @@ nav {
 
 /* ── SKILLS ── */
 #skills { background: var(--ink); color: var(--paper); }
-#skills .section-tag { color: rgba(255,255,255,0.3); }
+#skills .section-tag { color: rgba(255,255,255,0.65); }
 #skills .section-tag::after { background: rgba(255,255,255,0.1); }
 #skills .section-title { color: var(--paper); }
 
 .skills-board {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1px;
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.08);
@@ -292,7 +286,7 @@ nav {
 .skill-cell:hover { background: #16161e; }
 .skill-cell-label {
   font-family: var(--mono);
-  font-size: 9px; letter-spacing: 0.2em;
+  font-size: 11.5px; letter-spacing: 0.12em;
   color: var(--signal);
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -301,7 +295,7 @@ nav {
 .skill-tag {
   padding: 3px 10px;
   border-radius: 3px;
-  font-size: 11px;
+  font-size: 12.5px;
   font-family: var(--mono);
 }
 .skill-tag.primary { background: rgba(0,229,160,0.1); color: var(--signal); border: 1px solid rgba(0,229,160,0.2); }
@@ -333,7 +327,7 @@ nav {
 }
 .project-type {
   font-family: var(--mono);
-  font-size: 9px; letter-spacing: 0.2em;
+  font-size: 11.5px; letter-spacing: 0.1em;
   color: var(--muted);
   text-transform: uppercase;
   margin-bottom: 0.8rem;
@@ -345,7 +339,7 @@ nav {
   line-height: 1.3;
 }
 .project-desc {
-  font-size: 13px; color: var(--muted);
+  font-size: 14px; color: var(--muted);
   line-height: 1.7;
   margin-bottom: 1.2rem;
 }
@@ -355,17 +349,17 @@ nav {
   font-size: 1rem; font-weight: 700;
   color: var(--signal2);
 }
-.metric-label { font-size: 10px; color: var(--muted); }
+.metric-label { font-size: 12px; color: var(--muted); }
 .project-card-bottom {
   padding: 1rem 1.8rem;
   display: flex; align-items: center; justify-content: space-between;
   background: var(--paper2);
   flex-wrap: wrap; gap: 0.6rem;
 }
-.project-stack-mini { font-family: var(--mono); font-size: 10px; color: var(--muted); }
+.project-stack-mini { font-family: var(--mono); font-size: 11.5px; color: var(--muted); line-height: 1.5; }
 .project-links { display: flex; gap: 0.8rem; }
 .project-link {
-  font-size: 11px; font-weight: 600;
+  font-size: 12.5px; font-weight: 600;
   text-decoration: none; color: var(--ink);
   display: flex; align-items: center; gap: 4px;
   padding: 4px 10px; border-radius: 3px;
@@ -383,12 +377,13 @@ nav {
   grid-template-columns: 1fr 1fr;
 }
 .project-card.featured .project-card-top { border-bottom: none; border-right: 1px solid var(--border); }
-.project-card.featured .project-card-bottom { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.8rem; }
+.project-card.featured .project-links { margin-top: 0.2rem; }
+.project-card.featured .project-card-bottom { flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 1rem; padding: 1.8rem; }
 .featured-badge {
   display: inline-block;
   background: var(--signal); color: var(--ink);
   font-family: var(--mono);
-  font-size: 9px; letter-spacing: 0.15em;
+  font-size: 11px; letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 3px 8px; border-radius: 2px;
   margin-bottom: 1rem;
@@ -407,12 +402,12 @@ nav {
   width: 8px; height: 8px; border-radius: 50%;
   background: var(--signal2); border: 2px solid var(--paper2);
 }
-.tl-date { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+.tl-date { font-family: var(--mono); font-size: 12.5px; color: var(--muted); margin-bottom: 4px; }
 .tl-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 2px; }
 .tl-org { font-size: 13px; color: var(--signal2); font-weight: 600; margin-bottom: 1rem; }
 .tl-bullets { list-style: none; }
 .tl-bullets li {
-  font-size: 13px; color: var(--muted);
+  font-size: 14px; color: var(--muted);
   padding-left: 1.2em; position: relative;
   margin-bottom: 5px; line-height: 1.7;
 }
@@ -440,10 +435,10 @@ nav {
 .cert-icon.green { background: rgba(0,229,160,0.1); }
 .cert-icon.orange { background: rgba(255,107,53,0.1); }
 .cert-body { display: flex; flex-direction: column; gap: 2px; }
-.cert-issuer { font-size: 10px; color: var(--muted); font-family: var(--mono); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2px; }
+.cert-issuer { font-size: 11.5px; color: var(--muted); font-family: var(--mono); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2px; }
 .cert-name { font-size: 13px; font-weight: 600; }
 .cert-link {
-  font-family: var(--mono); font-size: 10.5px; font-weight: 600; color: var(--signal2);
+  font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--signal2);
   text-decoration: none; margin-top: 8px; display: inline-flex; align-items: center; gap: 4px;
   width: fit-content; border-bottom: 1px solid transparent; transition: border-color 0.2s;
 }
@@ -503,7 +498,7 @@ nav {
 /* ── CONTACT ── */
 #contact { background: var(--ink); color: var(--paper); }
 #contact .section-inner { max-width: 700px; margin: 0 auto; text-align: center; }
-#contact .section-tag { color: rgba(255,255,255,0.3); justify-content: center; }
+#contact .section-tag { color: rgba(255,255,255,0.65); justify-content: center; }
 #contact .section-tag::after { display: none; }
 #contact .section-title { color: var(--paper); text-align: center; }
 .contact-sub { color: rgba(255,255,255,0.4); margin-bottom: 3rem; font-size: 1rem; }
@@ -527,6 +522,24 @@ footer {
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em;
 }
 
+/* project screenshots */
+.project-shot { background: var(--ink); border-bottom: 1px solid var(--border); }
+.shot-bar { display: flex; gap: 6px; padding: 8px 12px; background: #1c2128; }
+.shot-bar i { width: 9px; height: 9px; border-radius: 50%; background: #3a424d; display: block; }
+.shot-frame { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
+.shot-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
+.shot-fallback { display: none; position: absolute; inset: 0; flex-direction: column; align-items: center; justify-content: center;
+  gap: 6px; text-align: center; padding: 1rem; background: linear-gradient(135deg, #16161e, #0d0d12); }
+.shot-fallback b { font-family: var(--mono); font-size: 2rem; color: var(--signal); }
+.shot-fallback span { font-size: 12.5px; color: rgba(255,255,255,0.65); }
+.project-shot.missing .shot-fallback { display: flex; }
+.project-shot.missing img { display: none; }
+.project-card.featured .project-shot { width: 100%; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+.project-tag { font-family: var(--mono); font-size: 11.5px; color: var(--muted); border: 1px dashed var(--border); padding: 4px 10px; border-radius: 3px; }
+.demo-note { margin-top: 1.2rem; font-size: 13px; color: var(--muted); }
+.skills-note { margin-top: 1.5rem; font-size: 13px; color: rgba(255,255,255,0.6); }
+.skills-note a { color: var(--signal); }
+
 /* SCROLL REVEAL */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -542,12 +555,12 @@ footer {
 #pdfDrawer {
   position: fixed; top: 0; left: 0; bottom: 0; z-index: 2001;
   width: min(720px, 92vw); background: var(--paper);
-  box-shadow: 30px 0 80px rgba(0,0,0,0.35);
+  box-shadow: none; visibility: hidden;
   transform: translateX(-100%);
-  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease, visibility 0.35s;
   display: flex; flex-direction: column;
 }
-#pdfDrawer.open { transform: translateX(0); }
+#pdfDrawer.open { transform: translateX(0); visibility: visible; box-shadow: 30px 0 80px rgba(0,0,0,0.35); }
 .pdf-drawer-bar {
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
   padding: 16px 20px; border-bottom: 1px solid var(--border);
@@ -582,7 +595,7 @@ footer {
     display: flex; justify-content: center; padding: 0 1.5rem 3rem;
   }
   .stats-bar { grid-template-columns: repeat(2, 1fr); }
-  .skills-board { grid-template-columns: repeat(2, 1fr); }
+  .skills-board { grid-template-columns: 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
   .project-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
   .project-card.featured .project-card-top { border-right: none; border-bottom: 1px solid var(--border); }
@@ -612,8 +625,6 @@ footer {
 </head>
 <body>
 
-<div class="cursor" id="cursor" aria-hidden="true"></div>
-
 <div id="pdfOverlay"></div>
 <div id="pdfDrawer" role="dialog" aria-modal="true" aria-label="Document viewer">
   <div class="pdf-drawer-bar">
@@ -631,12 +642,12 @@ footer {
 <nav>
   <a href="#" class="nav-logo">S<span>.</span>SINDHU</a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#certs">Certifications</a></li>
     <li><a href="#education">Education</a></li>
-    <li><a href="#resume">Resume</a></li>
-    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
   <button class="navToggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
@@ -644,20 +655,18 @@ footer {
 <!-- HERO -->
 <section id="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">AI Engineer — Open to Remote Roles</div>
+    <div class="hero-eyebrow">AI Engineer · Open to work</div>
     <h1 class="hero-name">
       Sindhu<br>
       <span class="line2">Sri Sali</span>
     </h1>
-    <div class="role-cycle" id="roleText">
-      <span id="typed"></span><span class="t-cursor" aria-hidden="true"></span>
-    </div>
+    <div class="role-cycle" id="roleText">LLM fine-tuning, RAG and ML systems</div>
     <p class="hero-desc">
-      I build AI systems that run in production — from fine-tuning language models and designing RAG pipelines to shipping full-stack applications with real users. 4 deployed projects. 3 live demos. Zero fluff.
+      I build and evaluate AI systems: fine-tuned language models, retrieval pipelines and ML services, delivered as working apps with live demos and open code. Open to on-site, hybrid and remote roles in India and beyond.
     </p>
     <div class="hero-actions">
       <a href="#projects" class="btn btn-primary">View Projects →</a>
-      <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/SindhuSriSali_Resume_.pdf" target="_blank" rel="noopener" data-title="Resume — Sindhu Sri Sali" class="btn btn-resume pdf-link">📄 Resume ↗</a>
+      <a href="SindhuSriSali_Resume_.pdf" target="_blank" rel="noopener" data-title="Resume — Sindhu Sri Sali" class="btn btn-resume pdf-link">Resume ↗</a>
       <a href="https://linkedin.com/in/sindhu-sri-sali-6867463b2/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn ↗</a>
     </div>
   </div>
@@ -668,25 +677,25 @@ footer {
         <span class="terminal-title">sindhu@ai-engineer ~ profile.json</span>
       </div>
       <div class="terminal-body">
-        <div class="t-comment">// Sindhu Sri Sali — AI Engineer</div>
+        <div class="t-comment">// Sindhu Sri Sali, AI Engineer</div>
         <br>
         <span class="t-key">"name"</span>: <span class="t-str">"Sindhu Sri Sali"</span>,<br>
-        <span class="t-key">"role"</span>: <span class="t-str">"Agentic AI Engineer"</span>,<br>
-        <span class="t-key">"location"</span>: <span class="t-str">"India 🇮🇳 · Remote Ready"</span>,<br>
+        <span class="t-key">"role"</span>: <span class="t-str">"AI Engineer"</span>,<br>
+        <span class="t-key">"location"</span>: <span class="t-str">"India · on-site, hybrid or remote"</span>,<br>
         <span class="t-key">"education"</span>: <span class="t-str">"B.Tech CSE-AIML · CGPA 8.59"</span>,<br>
         <br>
         <span class="t-key">"models_fine_tuned"</span>: [<br>
         &nbsp;&nbsp;<span class="t-str">"RoBERTa + LoRA"</span>, <span class="t-str">"BERT"</span><br>
         ],<br>
         <span class="t-key">"best_metric"</span>: <span class="t-num">97.3</span><span class="t-str">% ROC-AUC</span>,<br>
-        <span class="t-key">"deployed_projects"</span>: <span class="t-num">4</span>,<br>
+        <span class="t-key">"projects"</span>: <span class="t-num">4</span>,<br>
         <span class="t-key">"live_demos"</span>: <span class="t-num">3</span>,<br>
         <br>
         <span class="t-key">"stack"</span>: [<br>
         &nbsp;&nbsp;<span class="t-str">"LangChain"</span>, <span class="t-str">"RAG"</span>, <span class="t-str">"ChromaDB"</span>,<br>
         &nbsp;&nbsp;<span class="t-str">"FastAPI"</span>, <span class="t-str">"React"</span>, <span class="t-str">"Docker"</span><br>
         ],<br>
-        <span class="t-key">"status"</span>: <span class="t-str">"actively_looking"</span> <span class="t-cursor" aria-hidden="true"></span>
+        <span class="t-key">"status"</span>: <span class="t-str">"open_to_work"</span> <span class="t-cursor" aria-hidden="true"></span>
       </div>
     </div>
   </div>
@@ -700,11 +709,11 @@ footer {
       <span class="terminal-title">sindhu@ai-engineer ~ profile.json</span>
     </div>
     <div class="terminal-body">
-      <span class="t-key">"role"</span>: <span class="t-str">"Agentic AI Engineer"</span>,<br>
+      <span class="t-key">"role"</span>: <span class="t-str">"AI Engineer"</span>,<br>
       <span class="t-key">"education"</span>: <span class="t-str">"B.Tech CSE-AIML · CGPA 8.59"</span>,<br>
       <span class="t-key">"best_metric"</span>: <span class="t-num">97.3</span><span class="t-str">% ROC-AUC</span>,<br>
-      <span class="t-key">"deployed_projects"</span>: <span class="t-num">4</span>,<br>
-      <span class="t-key">"status"</span>: <span class="t-str">"actively_looking"</span>
+      <span class="t-key">"live_demos"</span>: <span class="t-num">3</span>,<br>
+      <span class="t-key">"status"</span>: <span class="t-str">"open_to_work"</span>
     </div>
   </div>
 </div>
@@ -713,104 +722,21 @@ footer {
 <div class="stats-bar reveal">
   <div class="stat-item">
     <div class="stat-num">97<em>.3%</em></div>
-    <div class="stat-desc">ROC-AUC · Fraud Detection</div>
+    <div class="stat-desc">ROC-AUC · fraud detection</div>
   </div>
   <div class="stat-item">
     <div class="stat-num">r<em>=.924</em></div>
-    <div class="stat-desc">Pearson · Computer Vision</div>
+    <div class="stat-desc">Correlation with expert ratings</div>
   </div>
   <div class="stat-item">
     <div class="stat-num">89<em>.0%</em></div>
-    <div class="stat-desc">Accuracy · LoRA RoBERTa</div>
+    <div class="stat-desc">Accuracy · LoRA RoBERTa clause classifier</div>
   </div>
   <div class="stat-item">
     <div class="stat-num">284<em>K</em></div>
-    <div class="stat-desc">Transactions Processed</div>
+    <div class="stat-desc">Transactions in the dataset</div>
   </div>
 </div>
-
-<!-- SKILLS -->
-<section class="section" id="skills">
-  <div class="section-inner">
-    <div class="section-tag reveal">Expertise</div>
-    <h2 class="section-title reveal">Technical Skills</h2>
-    <div class="skills-board reveal">
-      <div class="skill-cell">
-        <div class="skill-cell-label">Agentic AI &amp; LLM</div>
-        <div class="skill-tags">
-          <span class="skill-tag primary">LangChain</span>
-          <span class="skill-tag primary">LlamaIndex</span>
-          <span class="skill-tag primary">RAG</span>
-          <span class="skill-tag primary">LoRA Fine-Tuning</span>
-          <span class="skill-tag primary">ChromaDB</span>
-          <span class="skill-tag secondary">FAISS</span>
-          <span class="skill-tag secondary">NLI Evaluation</span>
-          <span class="skill-tag secondary">Prompt Engineering</span>
-        </div>
-      </div>
-      <div class="skill-cell">
-        <div class="skill-cell-label">Machine Learning</div>
-        <div class="skill-tags">
-          <span class="skill-tag primary">PyTorch</span>
-          <span class="skill-tag primary">TensorFlow</span>
-          <span class="skill-tag primary">XGBoost</span>
-          <span class="skill-tag secondary">RoBERTa</span>
-          <span class="skill-tag secondary">BERT</span>
-          <span class="skill-tag secondary">MobileNetV2</span>
-          <span class="skill-tag secondary">MLOps</span>
-          <span class="skill-tag secondary">Model Eval</span>
-        </div>
-      </div>
-      <div class="skill-cell">
-        <div class="skill-cell-label">APIs &amp; LLM Providers</div>
-        <div class="skill-tags">
-          <span class="skill-tag primary">OpenAI API</span>
-          <span class="skill-tag primary">Claude API</span>
-          <span class="skill-tag primary">Groq LLaMA 3.1</span>
-          <span class="skill-tag secondary">FastAPI</span>
-          <span class="skill-tag secondary">REST APIs</span>
-          <span class="skill-tag secondary">Async Python</span>
-          <span class="skill-tag secondary">JWT / OAuth2</span>
-        </div>
-      </div>
-      <div class="skill-cell">
-        <div class="skill-cell-label">Languages</div>
-        <div class="skill-tags">
-          <span class="skill-tag primary">Python</span>
-          <span class="skill-tag primary">JavaScript</span>
-          <span class="skill-tag primary">TypeScript</span>
-          <span class="skill-tag secondary">SQL</span>
-          <span class="skill-tag secondary">Java</span>
-          <span class="skill-tag secondary">C++</span>
-        </div>
-      </div>
-      <div class="skill-cell">
-        <div class="skill-cell-label">Full Stack</div>
-        <div class="skill-tags">
-          <span class="skill-tag primary">React.js</span>
-          <span class="skill-tag primary">Node.js</span>
-          <span class="skill-tag secondary">Express.js</span>
-          <span class="skill-tag secondary">PostgreSQL</span>
-          <span class="skill-tag secondary">MongoDB</span>
-          <span class="skill-tag secondary">Tailwind CSS</span>
-          <span class="skill-tag secondary">Streamlit</span>
-        </div>
-      </div>
-      <div class="skill-cell">
-        <div class="skill-cell-label">DevOps &amp; Cloud</div>
-        <div class="skill-tags">
-          <span class="skill-tag primary">Docker</span>
-          <span class="skill-tag primary">Git / GitHub</span>
-          <span class="skill-tag secondary">CI/CD</span>
-          <span class="skill-tag secondary">Vercel</span>
-          <span class="skill-tag secondary">Render</span>
-          <span class="skill-tag secondary">Linux</span>
-          <span class="skill-tag secondary">Observability</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- PROJECTS -->
 <section class="section" id="projects">
@@ -821,63 +747,123 @@ footer {
       <div class="project-card featured reveal">
         <div class="project-card-top">
           <div class="featured-badge">✦ Featured</div>
-          <div class="project-type">Legal AI · NLP · Fine-Tuning · RAG</div>
+          <div class="project-type">Legal AI · NLP · Fine-tuning · RAG</div>
           <div class="project-name">ClauseGuard — Contract Intelligence Platform</div>
-          <div class="project-desc">Multi-component contract intelligence platform: LoRA fine-tuned RoBERTa classifier for clause risk categorization, citation-grounded RAG agent, and an automated NLI evaluation harness. Built on CUAD — 500+ expert-annotated commercial contracts.</div>
+          <div class="project-desc">Multi-component contract intelligence platform: a LoRA fine-tuned RoBERTa classifier for clause risk categories, a citation-grounded RAG agent, and an automated NLI evaluation harness. Built on CUAD, 500+ expert-annotated commercial contracts.</div>
           <div class="project-metrics">
             <div class="metric"><div class="metric-val">89.0%</div><div class="metric-label">Accuracy</div></div>
             <div class="metric"><div class="metric-val">88.2%</div><div class="metric-label">Macro-F1</div></div>
-            <div class="metric"><div class="metric-val">+40%</div><div class="metric-label">Refusal Rate</div></div>
-            <div class="metric"><div class="metric-val">6,507</div><div class="metric-label">Training Examples</div></div>
+            <!-- TODO(Sindhu): write exactly what the 40% is measured against -->
+            <div class="metric"><div class="metric-val">+40%</div><div class="metric-label">Refusal rate vs baseline</div></div>
+            <div class="metric"><div class="metric-val">6,507</div><div class="metric-label">Training examples</div></div>
           </div>
         </div>
         <div class="project-card-bottom">
+          <div class="project-shot"><div class="shot-bar"><i></i><i></i><i></i></div><div class="shot-frame">
+          <img src="img/clauseguard.png" alt="ClauseGuard app showing a contract clause risk classification" loading="lazy" onerror="this.closest('.project-shot').classList.add('missing')"/>
+          <div class="shot-fallback"><b>89.0%</b><span>accuracy · clause risk classifier</span></div></div></div>
           <div class="project-stack-mini">PyTorch · RoBERTa · LoRA · LangChain · ChromaDB · NLI</div>
           <div class="project-links">
-            <a href="https://clauseguard-v2cnt6a5kygr7xpjc9quye.streamlit.app/" target="_blank" rel="noopener" class="project-link live">⚡ Live Demo</a>
+            <a href="https://clauseguard-v2cnt6a5kygr7xpjc9quye.streamlit.app/" target="_blank" rel="noopener" class="project-link live">Live demo ↗</a>
             <a href="https://github.com/sindhusali/clauseguard" target="_blank" rel="noopener" class="project-link">GitHub ↗</a>
           </div>
         </div>
       </div>
 
       <div class="project-card reveal">
+        <div class="project-shot"><div class="shot-bar"><i></i><i></i><i></i></div><div class="shot-frame">
+          <img src="img/smartbank.png" alt="SmartBank AI fraud detection dashboard" loading="lazy" onerror="this.closest('.project-shot').classList.add('missing')"/>
+          <div class="shot-fallback"><b>97.3%</b><span>ROC-AUC · fraud detection</span></div></div></div>
         <div class="project-card-top">
-          <div class="project-type">FinTech · ML · GenAI · Full Stack</div>
+          <div class="project-type">FinTech · ML · GenAI · Full stack</div>
           <div class="project-name">SmartBank AI — Fraud Detection Platform</div>
-          <div class="project-desc">Real-time fraud detection with XGBoost trained on 284,807 transactions. Groq LLaMA 3.1 generates plain-English explanations for every flagged transaction.</div>
+          <div class="project-desc">Fraud detection with XGBoost trained on 284,807 transactions. Groq LLaMA 3.1 explains every flagged transaction in plain English.</div>
           <div class="project-metrics">
             <div class="metric"><div class="metric-val">97.3%</div><div class="metric-label">ROC-AUC</div></div>
-            <div class="metric"><div class="metric-val">284K</div><div class="metric-label">Transactions</div></div>
+            <div class="metric"><div class="metric-val">284K</div><div class="metric-label">Transactions in dataset</div></div>
           </div>
         </div>
         <div class="project-card-bottom">
           <div class="project-stack-mini">XGBoost · FastAPI · React · PostgreSQL · LLaMA 3.1</div>
           <div class="project-links">
-            <a href="https://smartbank-ai-snowy.vercel.app/login" target="_blank" rel="noopener" class="project-link live">⚡ Live</a>
+            <a href="https://smartbank-ai-snowy.vercel.app/login" target="_blank" rel="noopener" class="project-link live">Live ↗</a>
             <a href="https://github.com/sindhusali/smartbank-ai" target="_blank" rel="noopener" class="project-link">GitHub ↗</a>
           </div>
         </div>
       </div>
 
       <div class="project-card reveal">
+        <div class="project-shot"><div class="shot-bar"><i></i><i></i><i></i></div><div class="shot-frame">
+          <img src="img/packageai.png" alt="PackageAI brand attention score interface" loading="lazy" onerror="this.closest('.project-shot').classList.add('missing')"/>
+          <div class="shot-fallback"><b>r = 0.924</b><span>correlation with expert ratings</span></div></div></div>
         <div class="project-card-top">
-          <div class="project-type">Computer Vision · NLP · Multi-Modal</div>
+          <div class="project-type">Computer vision · NLP · Multi-modal</div>
           <div class="project-name">Brand Attention Intelligence — PackageAI</div>
-          <div class="project-desc">Async AI pipeline fusing MobileNetV2 vision and BERT text features via Dempster-Shafer Fuzzy logic into a unified brand attention Consensus Score.</div>
+          <div class="project-desc">Async AI pipeline that fuses MobileNetV2 vision and BERT text features through Dempster-Shafer fuzzy logic into one brand attention score.</div>
           <div class="project-metrics">
-            <div class="metric"><div class="metric-val">r=0.924</div><div class="metric-label">vs Experts</div></div>
+            <div class="metric"><div class="metric-val">r = 0.924</div><div class="metric-label">vs expert ratings</div></div>
             <div class="metric"><div class="metric-val">&lt;200ms</div><div class="metric-label">Inference</div></div>
           </div>
         </div>
         <div class="project-card-bottom">
           <div class="project-stack-mini">TensorFlow · BERT · MobileNetV2 · FastAPI · Streamlit</div>
           <div class="project-links">
-            <a href="https://packageai.streamlit.app/" target="_blank" rel="noopener" class="project-link live">⚡ Live</a>
+            <a href="https://packageai.streamlit.app/" target="_blank" rel="noopener" class="project-link live">Live ↗</a>
             <a href="https://github.com/sindhusali/Brand-Attention-Intelligence" target="_blank" rel="noopener" class="project-link">GitHub ↗</a>
           </div>
         </div>
       </div>
+
+      <div class="project-card reveal">
+        <div class="project-shot"><div class="shot-bar"><i></i><i></i><i></i></div><div class="shot-frame">
+          <img src="img/recovr.png" alt="recovr dashboard ranking overdue customers" loading="lazy" onerror="this.closest('.project-shot').classList.add('missing')"/>
+          <div class="shot-fallback"><b>129</b><span>automated tests</span></div></div></div>
+        <div class="project-card-top">
+          <div class="project-type">Human-in-the-loop AI · Small business</div>
+          <div class="project-name">recovr — Overdue-Payment Follow-up</div>
+          <div class="project-desc">Helps small shops chase unpaid bills. Reads messy ledgers, ranks who to chase first and drafts reminders in English, Telugu and Hindi. The AI proposes, code validates every result, and the shopkeeper approves every message.</div>
+          <div class="project-metrics">
+            <div class="metric"><div class="metric-val">129</div><div class="metric-label">Automated tests</div></div>
+            <div class="metric"><div class="metric-val">3</div><div class="metric-label">Languages</div></div>
+          </div>
+        </div>
+        <div class="project-card-bottom">
+          <div class="project-stack-mini">Python · Streamlit · SQLite · Gemini · GitHub Actions</div>
+          <div class="project-links">
+            <span class="project-tag">Runs locally · CI on every push</span>
+            <a href="https://github.com/sindhusali/recovr" target="_blank" rel="noopener" class="project-link">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
     </div>
+    <p class="demo-note reveal">Live demos run on free hosting and may take about 30 seconds to wake up on the first visit.</p>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="section-inner">
+    <div class="section-tag reveal">Expertise</div>
+    <h2 class="section-title reveal">Technical Skills</h2>
+    <div class="skills-board reveal">
+      <div class="skill-cell">
+        <div class="skill-cell-label">LLM &amp; Agentic AI</div>
+        <div class="skill-tags"><span class="skill-tag primary">LangChain</span><span class="skill-tag primary">LlamaIndex</span><span class="skill-tag primary">RAG</span><span class="skill-tag primary">LoRA fine-tuning</span><span class="skill-tag secondary">ChromaDB</span><span class="skill-tag secondary">OpenAI · Claude · Groq APIs</span></div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-cell-label">Machine Learning</div>
+        <div class="skill-tags"><span class="skill-tag primary">PyTorch</span><span class="skill-tag primary">TensorFlow</span><span class="skill-tag primary">XGBoost</span><span class="skill-tag secondary">BERT · RoBERTa</span><span class="skill-tag secondary">MobileNetV2</span><span class="skill-tag secondary">Model evaluation</span></div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-cell-label">Backend &amp; Data</div>
+        <div class="skill-tags"><span class="skill-tag primary">Python</span><span class="skill-tag primary">FastAPI</span><span class="skill-tag primary">PostgreSQL</span><span class="skill-tag secondary">SQL</span><span class="skill-tag secondary">REST APIs</span><span class="skill-tag secondary">JWT / OAuth2</span></div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-cell-label">Frontend &amp; Deployment</div>
+        <div class="skill-tags"><span class="skill-tag primary">React.js</span><span class="skill-tag primary">Docker</span><span class="skill-tag primary">Git / GitHub</span><span class="skill-tag secondary">Streamlit</span><span class="skill-tag secondary">CI/CD</span><span class="skill-tag secondary">Vercel · Render</span></div>
+      </div>
+    </div>
+    <p class="skills-note reveal">Also: JavaScript, TypeScript, Node.js, Java, C++, MongoDB. Full list in the <a href="SindhuSriSali_Resume_.pdf" class="pdf-link" data-title="Resume — Sindhu Sri Sali">resume</a>.</p>
   </div>
 </section>
 
@@ -896,18 +882,16 @@ footer {
           <li>Built RAG pipelines and autonomous AI agents with LangChain and LlamaIndex across 10,000+ documents.</li>
           <li>Implemented error handling across 10 external API integrations, reducing failures by 40%.</li>
         </ul>
-        <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/AI_Deployment_Automation_Internship.pdf" data-title="AI Deployment &amp; Automation Internship Certificate" rel="noopener" class="tl-cert-link pdf-link">📄 View Certificate ↗</a>
+        <a href="AI_Deployment_Automation_Internship.pdf" data-title="AI Deployment &amp; Automation Internship Certificate" rel="noopener" class="tl-cert-link pdf-link">View certificate ↗</a>
       </div>
       <div class="timeline-item reveal">
         <div class="tl-date">Jan 2025 — Mar 2025</div>
         <div class="tl-title">Android Developer Internship</div>
         <div class="tl-org">EduSkills × Google for Developers</div>
         <ul class="tl-bullets">
-          <li>Completed 10-week Android Developer internship with Google for Developers, building mobile applications using Java, Android SDK, and Material Design guidelines.</li>
-          <li>Implemented full app lifecycle including UI components, REST API integration, background threading, and local data persistence using SQLite.</li>
-          <li>Applied Git version control, unit testing, and debugging practices to deliver responsive, maintainable Android applications following Google engineering standards.</li>
+          <li>10-week internship building Android apps in Java with the Android SDK, REST APIs and SQLite.</li>
         </ul>
-        <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/Android_Developer_Certificate.pdf" data-title="Android Developer Internship Certificate" rel="noopener" class="tl-cert-link pdf-link">📄 View Certificate ↗</a>
+        <a href="Android_Developer_Certificate.pdf" data-title="Android Developer Internship Certificate" rel="noopener" class="tl-cert-link pdf-link">View certificate ↗</a>
       </div>
       <div class="timeline-item reveal">
         <div class="tl-date">Jul 2024 — Sep 2024</div>
@@ -918,7 +902,7 @@ footer {
           <li>Built and optimized supervised learning models across classification and regression tasks, evaluating performance using precision, recall, F1-score, and ROC-AUC metrics.</li>
           <li>Applied hands-on ML skills through real-world projects, directly contributing to production AI systems achieving 97.3% ROC-AUC in fraud detection.</li>
         </ul>
-        <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/AIML_Certificate.pdf" data-title="AI-ML Internship Certificate" rel="noopener" class="tl-cert-link pdf-link">📄 View Certificate ↗</a>
+        <a href="AIML_Certificate.pdf" data-title="AI-ML Internship Certificate" rel="noopener" class="tl-cert-link pdf-link">View certificate ↗</a>
       </div>
     </div>
   </div>
@@ -935,7 +919,7 @@ footer {
         <div class="cert-body">
           <div class="cert-issuer">Anthropic</div>
           <div class="cert-name">Claude AI 101</div>
-          <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/Claude101.pdf" data-title="Claude AI 101 — Anthropic" rel="noopener" class="cert-link pdf-link">View Certificate ↗</a>
+          <a href="Claude101.pdf" data-title="Claude AI 101 — Anthropic" rel="noopener" class="cert-link pdf-link">View Certificate ↗</a>
         </div>
       </div>
       <div class="cert-card reveal">
@@ -943,7 +927,7 @@ footer {
         <div class="cert-body">
           <div class="cert-issuer">Anthropic</div>
           <div class="cert-name">AI Fluency: Frameworks &amp; Foundations</div>
-          <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/AI_Fluency.pdf" data-title="AI Fluency: Frameworks & Foundations — Anthropic" rel="noopener" class="cert-link pdf-link">View Certificate ↗</a>
+          <a href="AI_Fluency.pdf" data-title="AI Fluency: Frameworks & Foundations — Anthropic" rel="noopener" class="cert-link pdf-link">View Certificate ↗</a>
         </div>
       </div>
       <div class="cert-card reveal">
@@ -951,7 +935,7 @@ footer {
         <div class="cert-body">
           <div class="cert-issuer">Deloitte</div>
           <div class="cert-name">Data Analytics &amp; Dashboard Development</div>
-          <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/deloitte%20certificate.pdf" data-title="Data Analytics & Dashboard Development — Deloitte" rel="noopener" class="cert-link pdf-link">View Certificate ↗</a>
+          <a href="deloitte%20certificate.pdf" data-title="Data Analytics & Dashboard Development — Deloitte" rel="noopener" class="cert-link pdf-link">View Certificate ↗</a>
         </div>
       </div>
       <div class="cert-card reveal">
@@ -959,7 +943,7 @@ footer {
         <div class="cert-body">
           <div class="cert-issuer">NPTEL</div>
           <div class="cert-name">Introduction to Machine Learning</div>
-          <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/Machine_Learning_Certificate.pdf" data-title="Introduction to Machine Learning — NPTEL" rel="noopener" class="cert-link pdf-link">View Certificate ↗</a>
+          <a href="Machine_Learning_Certificate.pdf" data-title="Introduction to Machine Learning — NPTEL" rel="noopener" class="cert-link pdf-link">View Certificate ↗</a>
         </div>
       </div>
       <div class="cert-card reveal">
@@ -967,31 +951,7 @@ footer {
         <div class="cert-body">
           <div class="cert-issuer">NPTEL</div>
           <div class="cert-name">Database Management Systems</div>
-          <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/DBMS_Certificate.pdf" data-title="Database Management Systems — NPTEL" rel="noopener" class="cert-link pdf-link">View Certificate ↗</a>
-        </div>
-      </div>
-      <div class="cert-card reveal">
-        <div class="cert-icon orange">🐍</div>
-        <div class="cert-body">
-          <div class="cert-issuer">Spoken Tutorial Project, IIT Bombay</div>
-          <div class="cert-name">Python 3.4.3 Training</div>
-          <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/Python_Training_Certificate.pdf" data-title="Python 3.4.3 Training — Spoken Tutorial Project, IIT Bombay" rel="noopener" class="cert-link pdf-link">View Certificate ↗</a>
-        </div>
-      </div>
-      <div class="cert-card reveal">
-        <div class="cert-icon orange">☕</div>
-        <div class="cert-body">
-          <div class="cert-issuer">Spoken Tutorial Project, IIT Bombay</div>
-          <div class="cert-name">Java Programming Training</div>
-          <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/Java_Training.pdf" data-title="Java Programming Training — Spoken Tutorial Project, IIT Bombay" rel="noopener" class="cert-link pdf-link">View Certificate ↗</a>
-        </div>
-      </div>
-      <div class="cert-card reveal">
-        <div class="cert-icon orange">🐧</div>
-        <div class="cert-body">
-          <div class="cert-issuer">Spoken Tutorial Project, IIT Bombay</div>
-          <div class="cert-name">Linux Training</div>
-          <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/Linux_Training_Certificate.pdf" data-title="Linux Training — Spoken Tutorial Project, IIT Bombay" rel="noopener" class="cert-link pdf-link">View Certificate ↗</a>
+          <a href="DBMS_Certificate.pdf" data-title="Database Management Systems — NPTEL" rel="noopener" class="cert-link pdf-link">View Certificate ↗</a>
         </div>
       </div>
     </div>
@@ -1032,7 +992,7 @@ footer {
           <span>SindhuSriSali_Resume_.pdf</span>
         </div>
       </div>
-      <a href="https://raw.githubusercontent.com/sindhusali/sindhusrisali.github.io/main/SindhuSriSali_Resume_.pdf" target="_blank" rel="noopener" data-title="Resume — Sindhu Sri Sali" class="btn btn-primary pdf-link">Download Resume ↓</a>
+      <a href="SindhuSriSali_Resume_.pdf" target="_blank" rel="noopener" data-title="Resume — Sindhu Sri Sali" class="btn btn-primary pdf-link">Download Resume ↓</a>
     </div>
   </div>
 </section>
@@ -1041,8 +1001,8 @@ footer {
 <section class="section" id="contact">
   <div class="section-inner">
     <div class="section-tag reveal">Contact</div>
-    <h2 class="section-title reveal">Let's Build Together</h2>
-    <p class="contact-sub reveal">Actively looking for remote AI engineering roles. I ship fast, own the full stack, and care deeply about production quality.</p>
+    <h2 class="section-title reveal">Get in touch</h2>
+    <p class="contact-sub reveal">Open to AI and ML engineering roles: on-site, hybrid or remote. The quickest way to reach me is email.</p>
     <div class="contact-links reveal">
       <a href="mailto:sindhusrisali@gmail.com" class="contact-link primary">✉ sindhusrisali@gmail.com</a>
       <a href="https://linkedin.com/in/sindhu-sri-sali-6867463b2/" target="_blank" rel="noopener" class="contact-link ghost">LinkedIn ↗</a>
@@ -1068,16 +1028,13 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matc
   const isMobile = window.matchMedia('(max-width: 720px)').matches;
 
   function openDrawer(url, title){
-    const viewerUrl = 'https://docs.google.com/viewer?embedded=true&url=' + encodeURIComponent(url);
-    // On small screens a side panel doesn't fit well — open the preview directly in a new tab instead.
-    if (isMobile) { window.open(viewerUrl, '_blank', 'noopener'); return; }
-    // GitHub's raw file server doesn't send a proper application/pdf content-type,
-    // so the browser downloads the file instead of previewing it. Routing through
-    // Google's viewer forces an inline render regardless of the source content-type.
-    frame.src = viewerUrl;
+    // PDFs are hosted on this site, so the browser can show them directly.
+    // On small screens a side panel doesn't fit well, so open the PDF in a new tab instead.
+    if (isMobile) { window.open(url, '_blank', 'noopener'); return; }
+    frame.src = url;
     titleEl.textContent = title || 'Document';
-    openNew.href = viewerUrl;
-    downloadLink.href = url;
+    openNew.href = url;
+    downloadLink.href = url; downloadLink.setAttribute("download", "");
     overlay.classList.add('open');
     drawer.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -1102,28 +1059,6 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matc
   });
 })();
 
-const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
-if (!hasFinePointer) document.body.classList.add('no-fine-pointer');
-
-/* custom cursor — skip entirely on touch devices or reduced motion */
-if (hasFinePointer && !reducedMotion) {
-  const cursor = document.getElementById('cursor');
-  document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX - 5 + 'px';
-    cursor.style.top = e.clientY - 5 + 'px';
-  });
-  document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('expanded'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('expanded'));
-  });
-  document.querySelectorAll('.hero-right, #skills, #contact').forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('on-dark'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('on-dark'));
-  });
-} else {
-  document.getElementById('cursor').style.display = 'none';
-}
-
 /* mobile nav toggle */
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
@@ -1132,27 +1067,6 @@ navToggle.addEventListener('click', () => {
   navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
 });
 navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-
-/* typewriter role cycle */
-const roles = ['Agentic AI Engineer_','LLM Engineer_','GenAI Developer_','ML Engineer_','Full Stack Developer_','RAG Specialist_'];
-const typedEl = document.getElementById('typed');
-if (reducedMotion) {
-  typedEl.textContent = roles[0];
-} else {
-  let ri = 0, ci = 0, deleting = false;
-  function type() {
-    const cur = roles[ri];
-    if (!deleting) {
-      typedEl.textContent = cur.slice(0, ci + 1); ci++;
-      if (ci === cur.length) { deleting = true; setTimeout(type, 1800); return; }
-    } else {
-      typedEl.textContent = cur.slice(0, ci - 1); ci--;
-      if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
-    }
-    setTimeout(type, deleting ? 40 : 75);
-  }
-  type();
-}
 
 /* scroll reveal */
 const revealEls = document.querySelectorAll('.reveal');
